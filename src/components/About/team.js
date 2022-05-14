@@ -217,8 +217,8 @@ function Team() {
                                 <div className="teaminfo">
                                     <Reveal>
                                         <Tween from={{ opacity: '0' }} duration={.5}>
-                                            <p className="name">{full_name?.[0].text}</p>
-                                            <p className="title">{role?.[0].text}</p>
+                                            <p className="name">{full_name?.[0]?.text}</p>
+                                            <p className="title">{role?.[0]?.text}</p>
                                         </Tween>
                                     </Reveal>
                                 </div>
