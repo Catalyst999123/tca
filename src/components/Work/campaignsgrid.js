@@ -5,6 +5,9 @@ import { prismicClient } from '../client'
 import * as Prismic from '@prismicio/client'
 
 import media from "../../styles/media"
+import Arrow from '../../images/arrow-white.svg'
+import BrandMark from '../../images/yellowbrandmark.svg'
+
 
 
 import { Reveal, Tween } from "react-gsap"
@@ -17,321 +20,100 @@ const CampaignsGridCon = styled.div`
   a {
     text-decoration: none;
     color: black;
+    cursor: pointer;
+  }
+
+  h2, p, a {
+    color: #fff;
   }
 
   .caserow {
     display: block;
   }
 
-  img {
-    height: inherit;
-    width: -webkit-fill-available;
-    object-fit: cover;
-
-    &.rect {
-      height: 250px;
-      width: 100%;
+  .caseStudy {
+      margin: 20px;
+      background-color: #FCC71A;
+      display: flex;
+      padding: 23px;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    &.circ {
-      height: 80vw;
-      width: 80vw;
-      margin: 0 5vw;
-      border-radius: 50%;
-    }
+   .work-brandmark{
+     height: 150px;
+    margin-right: -23px;
+    margin-bottom: -24px;
+   }
 
-    &.long {
-      height: 250px;
-      width: 100%;
-      margin-top: 100px;
+  .learn-more-container {
+    display: flex; 
+    align-items: center;
+    p{
+      margin-right: 20px;
     }
-
-    &.square {
-      height: 250px;
-      width: 100%;
-    }
-
-    &.smallrect {
-      height: 250px;
-      width: 100%;
-      margin-top: 0px;
-    }
-
-    &.smallsquare {
-      height: 250px;
-      width: 100%;
-      margin-top: 0px;
-    }
-
-    &.largesquare {
-      height: 250px;
-      width: 100%;
-      margin-top: 100px;
+    img {
+      width: 20px;
     }
   }
 
-  .bottom {
-    height: 75px;
-    margin-bottom: 0;
-    padding: 0px;
-    h2 {
-      color: var(--dark-yellow);
-      font-size: 18px;
-      line-height: 22px;
-      font-weight: normal;
-      margin-bottom: 0;
-      margin: 0;
+  .learn-more-cta {
+    display: flex;
+    border-width: .5px;
+    border-color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    align-items: center;
+    justify-content: center;
+}
+
+${media.tablet` 
+padding-top: 150px;
+    margin-top: 0;
+.caserow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 5px;
+      grid-row-gap: 30px;
     }
-    p {
-      font-size: 14px;
-      line-height: 17px;
-      margin: 0;
-    }
-  }
 
-  .reviewcon {
-    position: relative;
-    cursor: pointer;
-
-    .outer {
-      position: absolute;
-      overflow: hidden;
-      background: var(--dark-blue);
-
-      &.closed {
-        right: 45px;
-        top: -45px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-
-        .topLine, .reviewText {
-          opacity: 0;
-        }
-      }
-      &.open {
-        right: 0;
-        top: -75px;
-        width: calc(90vw - 40px);
-        height: 105px;
-        border-radius: 25px 25px 25px 0px;
-        padding: 20px 20px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-        .topLine, .reviewText {
-          transition: all .2s linear;
-          transition-delay: .2s;
-          opacity: 1;
-        }
-      }
-
-      .topLine {
-        display: flex;
-        justify-content: space-between;
-
-        .reviewer {
-          display: flex;
-          align-items: center;
-        }
-
-        .circle {
-          width: 30px;
-          height: 30px;
-          background: var(--light-red);
-          border-radius: 50%;
-          margin-right: 5px;
-        }
-
-        .reviewerName {
-          font-size: 14px;
-          line-height: 14px;
-          color: var(--light-blue);
-          margin: 0;
-        }
-
-        .company {
-          color: var(--light-blue);
-          font-size: 10px;
-          line-height: 10px;
-        }
-      }
-
-      .reviewText {
-        font-size: 12px;
-        line-height: 14px;
-        color: #F2F2F2;
-      }
-    }
-  }
+    .work-brandmark{
+     height: 200px;
+    margin-right: -23px;
+    margin-bottom: -24px;
+   }
+`}
   
-  .shortDesk {
-    width: 100%;
-  }
+  
 
   ${media.laptop`
-    padding: 150px 8vw;
+    padding-top: 150px;
     margin-top: 0;
 
     .caserow {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-column-gap: 10px;
+      grid-row-gap: 30px;
+    }
+
+    .work-brandmark{
+     height: 200px;
+    margin-right: -23px;
+    margin-bottom: -24px;
+   }
+
+    .caseStudy {
+      height: 400px;
+      width: 400px;
       display: flex;
+      padding: 23px;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: center;
     }
-
-    .rectcirc {
-      margin-bottom: 50px;
-    }
-
-    .longsquare {
-      align-items: flex-start;
-    }
-
-    img {
-      height: inherit;
-      width: -webkit-fill-available;
-      object-fit: cover;
-
-      &.rect {
-        height: 450px;
-        width: 55vw;
-      }
-
-      &.circ {
-        height: 300px;
-        width: 300px;
-        border-radius: 50%;
-      }
-
-      &.long {
-        height: 600px;
-        width: 40vw;
-        margin-top: 0px;
-        margin-top: 50px;
-      }
-
-      &.square {
-        height: 30vw;
-        width: 30vw;
-        margin-top: 50px;
-      }
-
-      &.smallrect {
-        height: 350px;
-        width: 45vw;
-        margin-top: -50px;
-      }
-
-      &.smallsquare {
-        height: 25vw;
-        width: 35vw;
-        margin-top: 250px;
-      }
-
-      &.largesquare {
-        width: 40vw;
-        height: 40vw;
-        margin-top: 50px;
-        margin-bottom: 0px;
-      }
-    }
-
-    .bottom {
-      height: 75px;
-      margin-bottom: 0;
-      padding: 0px;
-      h2 {
-        color: var(--dark-yellow);
-        font-size: 25px;
-        line-height: 30px;
-        font-weight: normal;
-        margin-bottom: 0;
-        margin: 0;
-      }
-      p {
-        font-size: 16px;
-        line-height: 19px;
-        margin: 0;
-      }
-    }
-
-    .reviewcon {
-      position: relative;
-      cursor: pointer;
-
-      .outer {
-        position: absolute;
-        overflow: hidden;
-        background: var(--dark-blue);
-
-        &.closed {
-          right: 95px;
-          top: -45px;
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-
-          .topLine, .reviewText {
-            opacity: 0;
-          }
-        }
-        &.open {
-          right: -45px;
-          top: -45px;
-          width: 22vw;
-          height: 165px;
-          border-radius: 25px 25px 25px 0px;
-          padding: 20px 50px;
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-          .topLine, .reviewText {
-            transition: all .2s linear;
-            transition-delay: .2s;
-            opacity: 1;
-          }
-        }
-
-        .topLine {
-          display: flex;
-          justify-content: space-between;
-
-          .reviewer {
-            display: flex;
-            align-items: center;
-          }
-
-          .circle {
-            width: 30px;
-            height: 30px;
-            background: var(--light-red);
-            border-radius: 50%;
-            margin-right: 5px;
-          }
-
-          .reviewerName {
-            font-size: 18px;
-            line-height: 24px;
-            color: var(--light-blue);
-            margin: 0;
-          }
-
-          .company {
-            color: var(--light-blue);
-            font-size: 12px;
-            line-height: 14px;
-          }
-        }
-
-        .reviewText {
-          font-size: 16px;
-          line-height: 19px;
-          color: #F2F2F2;
-        }
-      }
-    }
-  
-  .shortDesc{
-    width: 30vw;
-  }
   `}
 `
 
@@ -359,31 +141,53 @@ const CampaignsGrid = () => {
       <CampaignsGridCon>
 
         {/* Row 1 */}
-        <div className="caserow rectcirc">
-          <div className="caseStudy">
-            {doc && doc[0] && (
-              <Link
-                to={{
-                  pathname: `/work/${doc[0].slugs[0]}`,
-                  state: doc[0]
-                }}
-                onClick={() => localStorage.setItem('casestudy', JSON.stringify(doc[0]))}
-                onContextMenu={() => localStorage.setItem('casestudy', JSON.stringify(doc[0]))}
-              >
+        <div className="caserow">
+          {(doc || []).map(d => (
+            <div key={d.id} className="caseStudy">
+              <Reveal>
+                <Tween from={{ opacity: '0' }} duration={.5}>
+                  <h2>{d.data.title[0].text}</h2>
+                </Tween>
+              </Reveal>
+
+              <Reveal>
+                <Tween from={{ opacity: '0' }} duration={.5}>
+                  <p>{d.data.services[0].text}</p>
+                </Tween>
+              </Reveal>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <Link
+                    to={{
+                      pathname: `/work/${d.slugs[0]}`,
+                      state: d
+                    }}
+                    onClick={() => localStorage.setItem('casestudy', JSON.stringify(d))}
+                    onContextMenu={() => localStorage.setItem('casestudy', JSON.stringify(d))}
+                  >
+                    <Reveal>
+                      <Tween from={{ opacity: '0' }} duration={.5}>
+                        <div className="learn-more-container">
+                          <p>Learn more</p>
+                          <div className="learn-more-cta">
+                            <img src={Arrow} alt="learn more" />
+                          </div>
+                        </div>
+
+                      </Tween>
+                    </Reveal>
+                  </Link>
+                </div>
+                <img src={BrandMark} className="work-brandmark" alt="TCA" />
+              </div>
 
 
-                <img src={doc[0].data.thumbnail.url} className="rect" />
+            </div>
+          ))}
 
-                <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
-                  <div className="bottom">
-                    <h2>{doc[0].data.title[0].text}</h2>
-                    <p>{doc[0].data.services[0].text}</p>
-                  </div>
-                </Tween></Reveal>
-              </Link>
-            )}
-          </div>
-          <div className="caseStudy">
+        </div>
+        {/*   <div className="caseStudy">
             <div className="review">
               {/* <img src={Divider} className="circ" />
               <div className="reviewcon" onClick={() => setReview1Open(!review1Open)}>
@@ -397,13 +201,13 @@ const CampaignsGrid = () => {
                   </div>
                   <p className="reviewText">Review text</p>
                 </div>
-              </div> */}
+              </div> /}
             </div>
-          </div>
-        </div>
+          </div> */}
+
 
         {/* Row 2 */}
-        <div className="caserow longsquare">
+        {/*  <div className="caserow">
           <div className="caseStudy">
             {doc && doc[1] && (
               <Link
@@ -445,9 +249,9 @@ const CampaignsGrid = () => {
             )}
           </div>
         </div>
-
+ */}
         {/* Row 3 */}
-        <div className="caserow squarerect">
+        {/* <div className="caserow">
           <div className="caseStudy">
             {doc && doc[3] && (
               <Link
@@ -488,10 +292,10 @@ const CampaignsGrid = () => {
               </Link>
             )}
           </div>
-        </div>
+        </div> */}
 
         {/* Row 4 */}
-        <div className="caserow squarerect">
+        {/* <div className="caserow ">
           <div className="caseStudy">
             {doc && doc[5] && (
               <Link
@@ -532,10 +336,10 @@ const CampaignsGrid = () => {
               </Link>
             )}
           </div>
-        </div>
+        </div> */}
 
-        {/* Row 5 */}
-        <div className="caserow circsquare">
+        {/*  
+        <div className="caserow">
           <div className="review">
             {/* <img src={Divider} className="circ" />
             <div className="reviewcon" onClick={() => setReview2Open(!review2Open)}>
@@ -549,7 +353,7 @@ const CampaignsGrid = () => {
                 </div>
                 <p className="reviewText">Review text</p>
               </div>
-            </div> */}
+            </div> /}
           </div>
           <div className="caseStudy">
             {doc && doc[0] && (
@@ -571,7 +375,7 @@ const CampaignsGrid = () => {
               </Link>
             )}
           </div>
-        </div>
+        </div> */}
       </CampaignsGridCon>
     </>
   );

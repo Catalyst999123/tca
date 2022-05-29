@@ -113,23 +113,23 @@ function WorkHero() {
     <WorkHeroCon>
       <h2 className="largeText desk">
         <div className='line-wrap'>
-        <div ref={el => (line1 = el)} className='line'>
-        Marketing initiatives that 
-        </div>
+          <div ref={el => (line1 = el)} className='line'>
+            Marketing initiatives that
+          </div>
         </div>
       </h2>
       <h2 className="largeText desk">
         <div className='line-wrap'>
-        <div ref={el => (line2 = el)} className='line'>
-        deliver an impact
-        </div>
+          <div ref={el => (line2 = el)} className='line'>
+            deliver an impact
+          </div>
         </div>
       </h2>
       <p className="blurbText mob">
         Marketing initiatives that deliver an impact
       </p>
 
-      <img src={BrandMark} className="brandmark" alt="TCA" />
+      {/*  <img src={BrandMark} className="brandmark" alt="TCA" /> */}
     </WorkHeroCon>
   );
 }
