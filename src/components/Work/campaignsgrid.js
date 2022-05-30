@@ -6,7 +6,7 @@ import * as Prismic from '@prismicio/client'
 
 import media from "../../styles/media"
 import Arrow from '../../images/arrow-white.svg'
-import BrandMark from '../../images/yellowbrandmark.svg'
+import BrandMark from '../../images/tca_work_mark.svg'
 
 
 
@@ -33,7 +33,6 @@ const CampaignsGridCon = styled.div`
 
   .caseStudy {
       margin: 20px;
-      background-color: #FCC71A;
       display: flex;
       padding: 23px;
       flex-direction: column;
@@ -143,7 +142,7 @@ const CampaignsGrid = () => {
         {/* Row 1 */}
         <div className="caserow">
           {(doc || []).map(d => (
-            <div key={d.id} className="caseStudy">
+            <div key={d.id} className="caseStudy" style={{ backgroundColor: d.data.bgcolor ? d.data.bgcolor : '#FCC71A' }}>
               <Reveal>
                 <Tween from={{ opacity: '0' }} duration={.5}>
                   <h2>{d.data.title[0].text}</h2>
@@ -158,6 +157,9 @@ const CampaignsGrid = () => {
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
+
+                  <img src={d.data.companylogo.url} style={{ marginBottom: 40 }} />
+
                   <Link
                     to={{
                       pathname: `/work/${d.slugs[0]}`,
