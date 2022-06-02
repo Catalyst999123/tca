@@ -89,7 +89,11 @@ const CampaignsGrid = () => {
 const CampaignsGridCon = styled.div`
   max-width: 100vw;
   padding: 0 5vw;
+  display: flex;
+  padding: 0 5vw;
+    justify-content: center;
   margin-top: 50px;
+   
         margin-bottom: 100px;
   a {
     text-decoration: none;
@@ -149,6 +153,7 @@ const CampaignsGridCon = styled.div`
 }
 
 ${media.tablet` 
+padding: 0 5vw;
 padding-top: 150px;
     margin-top: 0;
 .caserow {
@@ -175,6 +180,7 @@ padding-top: 150px;
   
 
   ${media.laptop`
+  padding: 0;
     padding-top: 0px;
     margin-top: 0;
 
@@ -198,8 +204,8 @@ padding-top: 150px;
    }
 
     .caseStudy {
-      height: 400px;
-      width: 400px;
+      height: 350px;
+      width: 350px;
       display: flex;
       padding: 23px;
       flex-direction: column;
