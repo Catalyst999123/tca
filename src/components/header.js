@@ -566,41 +566,41 @@ const MenuCon = styled.div`
 `
 
 const Header = () => {
-  const [ open, setOpen ] = useState(false)
+  const [open, setOpen] = useState(false)
   const location = useLocation();
 
   const [caseNo, setCaseNo] = useState(0)
   const [blogNo, setBlogNo] = useState(0)
 
   // useInViewEffect(() => {
-    if(caseNo !== localStorage.getItem('casestudyNo')) {
+  if (caseNo !== localStorage.getItem('casestudyNo')) {
     setCaseNo(localStorage.getItem('casestudyNo'))
-    }
-    if(blogNo !== localStorage.getItem('blogNo')) {
+  }
+  if (blogNo !== localStorage.getItem('blogNo')) {
     setBlogNo(localStorage.getItem('blogNo'))
-    }
+  }
   // }, [])
 
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-  if (location.pathname.replace("/","") === '')  {
+  if (location.pathname.replace("/", "") === '') {
     document.documentElement.style.setProperty('--color', `var(--light-green)`);
-  } else if (location.pathname.replace("/","") === 'about')  {
+  } else if (location.pathname.replace("/", "") === 'about') {
     document.documentElement.style.setProperty('--color', `var(--light-red)`);
-  } else if (location.pathname.replace("/","") === 'services') {
+  } else if (location.pathname.replace("/", "") === 'services') {
     document.documentElement.style.setProperty('--color', `var(--dark-green)`);
   } else if (location.pathname.includes('blog') && location.pathname.length < 6) {
     document.documentElement.style.setProperty('--color', `var(--dark-blue)`);
   } else if (location.pathname.includes('blog') && location.pathname.length > 6) {
     document.documentElement.style.setProperty('--color', `var(--dark-blue)`);
   } else if (location.pathname.includes('work') && location.pathname.length < 6) {
-    document.documentElement.style.setProperty('--color', `var(--dark-yellow)`);
+    document.documentElement.style.setProperty('--color', `var(--dark-blue)`);
   } else if (location.pathname.includes('work') && location.pathname.length > 6) {
     document.documentElement.style.setProperty('--color', `var(--dark-blue)`)
   } else if (location.pathname.includes('privacy') && location.pathname.length > 6) {
     document.documentElement.style.setProperty('--color', `var(--dark-blue)`)
-  } else if (location.pathname.replace("/","") === 'contact') {
+  } else if (location.pathname.replace("/", "") === 'contact') {
     document.documentElement.style.setProperty('--color', `var(--light-blue)`);
   } else {
     document.documentElement.style.setProperty('--color', `var(--light-blue)`);
@@ -608,29 +608,29 @@ const Header = () => {
 
   return (
     <>
-    <HeadNav>
-      <NavLink exact activeClassName="menu__link--active" to="/" className="menu__link">
-        <img className={open ? 'menuLogo desk open' : 'menuLogo desk'} src={Logo} alt="logo"  />
-        <img className={open ? 'menuLogo mob open' : 'menuLogo mob'} src={FooterLogo} alt="logo"  />
-      </NavLink>
-      <button className={open ? 'menuIcon open' : 'menuIcon'} onClick={() => setOpen(!open)}>
-        <div className="menu__wrapper">
-          <div className="menu__item--doner" tabIndex="2">
-            <div className="line"></div>
-            <div className="line"></div>
-            <div className="line"></div>
+      <HeadNav>
+        <NavLink exact activeClassName="menu__link--active" to="/" className="menu__link">
+          <img className={open ? 'menuLogo desk open' : 'menuLogo desk'} src={Logo} alt="logo" />
+          <img className={open ? 'menuLogo mob open' : 'menuLogo mob'} src={FooterLogo} alt="logo" />
+        </NavLink>
+        <button className={open ? 'menuIcon open' : 'menuIcon'} onClick={() => setOpen(!open)}>
+          <div className="menu__wrapper">
+            <div className="menu__item--doner" tabIndex="2">
+              <div className="line"></div>
+              <div className="line"></div>
+              <div className="line"></div>
+            </div>
           </div>
-        </div>
-      </button>
-    </HeadNav>
+        </button>
+      </HeadNav>
 
-    <MenuCon className={open ? 'open' : 'closed'}>
-      {/* <Reveal repeat> */}
+      <MenuCon className={open ? 'open' : 'closed'}>
+        {/* <Reveal repeat> */}
         {/* <Tween from={{opacity: 0}} duration={.2}> */}
-          <div className="items">
-            <div className="pages">
-              <MouseParallaxContainer>
-                <MouseParallaxChild factorX={-0.002} factorY={0.002}>
+        <div className="items">
+          <div className="pages">
+            <MouseParallaxContainer>
+              <MouseParallaxChild factorX={-0.002} factorY={0.002}>
                 <div className='line-wrap'>
                   {/* <Tween from={{ marginTop: '95px' }} duration={.5}> */}
                   <div className='line'>
@@ -640,19 +640,19 @@ const Header = () => {
                   </div>
                   {/* </Tween> */}
                 </div>
-                </MouseParallaxChild>
-                <MouseParallaxChild factorX={0.001} factorY={-0.003}>
+              </MouseParallaxChild>
+              <MouseParallaxChild factorX={0.001} factorY={-0.003}>
                 <div className='line-wrap'>
-                {/* <Tween from={{ marginTop: '95px' }} duration={.5} delay={.25}> */}
+                  {/* <Tween from={{ marginTop: '95px' }} duration={.5} delay={.25}> */}
                   <div className='line second'>
                     <NavLink exact activeClassName="menu__link--active" to="/about" onClick={() => setOpen(!open)}>
                       Agency
                     </NavLink>
                   </div>
-                {/* </Tween> */}
+                  {/* </Tween> */}
                 </div>
-                </MouseParallaxChild>
-                <MouseParallaxChild factorX={-0.003} factorY={0.003}>
+              </MouseParallaxChild>
+              <MouseParallaxChild factorX={-0.003} factorY={0.003}>
                 <div className='line-wrap'>
                   {/* <Tween from={{ marginTop: '95px' }} duration={.5} delay={.5}> */}
                   <div className='line third'>
@@ -660,10 +660,10 @@ const Header = () => {
                       Work<sup>{caseNo}</sup>
                     </NavLink>
                   </div>
-                {/* </Tween> */}
+                  {/* </Tween> */}
                 </div>
-                </MouseParallaxChild>
-                <MouseParallaxChild factorX={0.003} factorY={-0.002}>
+              </MouseParallaxChild>
+              <MouseParallaxChild factorX={0.003} factorY={-0.002}>
                 <div className='line-wrap'>
                   {/* <Tween from={{ marginTop: '95px' }} duration={.5} delay={.75}> */}
                   <div className='line fourth'>
@@ -671,28 +671,28 @@ const Header = () => {
                       Blog<sup>{blogNo}</sup>
                     </NavLink>
                   </div>
-                {/* </Tween> */}
+                  {/* </Tween> */}
                 </div>
-                </MouseParallaxChild>
-                <MouseParallaxChild factorX={-0.002} factorY={0.004}>
+              </MouseParallaxChild>
+              <MouseParallaxChild factorX={-0.002} factorY={0.004}>
                 <div className='line-wrap'>
-                {/* <Tween from={{ marginTop: '95px' }} duration={.5} delay={1}> */}
+                  {/* <Tween from={{ marginTop: '95px' }} duration={.5} delay={1}> */}
                   <div className='line fifth'>
                     <NavLink exact activeClassName="menu__link--active" to="/contact" onClick={() => setOpen(!open)}>
                       Contact
                     </NavLink>
                   </div>
-                {/* </Tween> */}
+                  {/* </Tween> */}
                 </div>
-                </MouseParallaxChild>
-              </MouseParallaxContainer>
-            </div>
-
-            <div className="contacts"></div>
+              </MouseParallaxChild>
+            </MouseParallaxContainer>
           </div>
-         {/* </Tween>  */}
-      {/* </Reveal> */}
-    </MenuCon>
+
+          <div className="contacts"></div>
+        </div>
+        {/* </Tween>  */}
+        {/* </Reveal> */}
+      </MenuCon>
     </>
   );
 }
