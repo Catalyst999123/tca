@@ -49,7 +49,7 @@ const CampaignsGrid = () => {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
 
-                  <img src={d.data.companylogo.url} style={{ marginBottom: 40, height: 40 }} />
+                  <img src={d.data.companylogo.url} className="companylogo" />
 
                   <Link
                     to={{
@@ -106,7 +106,7 @@ const CampaignsGridCon = styled.div`
   }
 
   .caseStudy {
-      margin: 20px;
+      margin: 10px 5px;
       display: flex;
       padding: 23px;
       flex-direction: column;
@@ -114,9 +114,14 @@ const CampaignsGridCon = styled.div`
     }
 
    .work-brandmark{
-     height: 150px;
+     height: 100px;
     margin-right: -23px;
-    margin-bottom: -24px;
+    margin-bottom: -60px
+   }
+
+   .companylogo {
+    margin-top: 40px;
+     height: 25px;
    }
 
   .learn-more-container {
@@ -153,11 +158,18 @@ padding-top: 150px;
       grid-row-gap: 30px;
     }
 
+    .companylogo {
+      height: 35px;
+  margin-top: 0;
+  margin-bottom: 40px;
+   }
+
     .work-brandmark{
      height: 200px;
     margin-right: -23px;
     margin-bottom: -24px;
    }
+   
 `}
   
   
@@ -177,6 +189,12 @@ padding-top: 150px;
      height: 200px;
     margin-right: -23px;
     margin-bottom: -24px;
+   }
+
+   .companylogo {
+  height: 35px;
+  margin-top: 0;
+  margin-bottom: 40px;
    }
 
     .caseStudy {
