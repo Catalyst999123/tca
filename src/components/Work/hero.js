@@ -6,130 +6,92 @@ import media from '../../styles/media'
 import BrandMark from '../../images/yellowbrandmark.svg'
 
 const WorkHeroCon = styled.div`
-  height: 650px;
-  width: 90vw;
-  padding: 0 5vw;
+
+height: 400px;
+    padding-top: 20vh;
+    padding-left: 10px;
+    padding-right: 35px;
+  /* height: 650px; */
   display: flex;
-  align-items: center;
-  /* height: fit-content; */
-  h2 {
-    color: var(--light-yellow);
+  flex-direction: column;
+ 
+  h2.header {
+    color: #1A1A9E;
     font-weight: normal;
     margin: 0;
-    font-size: 8vw;
+    font-size: 48px;
     line-height: 1;
-    text-align: center;
-    width: calc(100vw - 16vw);
+    opacity: 0.8;
+  }
 
-    &.desk {
-      display: none;
+  h3.hero-text {
+      font-size: 25px;
+      color: white;
     }
-  }
-  p {
-    color: var(--dark-yellow);
-    font-size: 62px;
-    line-height: 74px;
 
-    &.desk {
-      display: none;
+    p{
+      font-size: 20px;
     }
+
+  .hero-container {
+    /* padding: 2vw 5vh; */
   }
 
-  .brandmark {
-    height: 250px;
-    position: absolute;
-    top: 525px;
-    right: 0;
-  }
 
   ${media.laptop`
     min-height: 600px;
     height: 70vh;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 6vw;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0 10vw;
 
-    h2 {
-      color: var(--dark-yellow);
-      font-weight: normal;
-      font-size: 95px;
-      line-height: 80px;
-      &.mob {
-        display: none;
-      }
-      &.desk {
-        display: block;
-      }
-      .line-wrap {
-        overflow: hidden;
-        height: 95px;
-      }
+    p{
+      font-size: 25px;
     }
 
-    p {
-      color: white;
-      width: 465px;
-      position: absolute;
-      left: 60vw;
-      top: 20vh;
-      &.mob {
-        display: none;
-      }
-      &.desk {
-        display: block;
-      }
-      .line-wrap {
-        overflow: hidden;
-        height: 45px;
-      }
+    h3.hero-text {
+      font-size: 40px;
+          color: white;
     }
 
-    .brandmark {
-      height: 350px;
-      position: absolute;
-      top: 50vh;
-      right: 0;
+    div.hero-container{
+      width: 500px;
     }
+
+    h2.header {
+    color: #1A1A9E;
+    font-weight: normal;
+    margin: 0;
+    font-size: 90px;
+    line-height: 1;
+    opacity: 0.8;
+  }
+
   `}
 `
 
 function WorkHero() {
-  let line1 = useRef(null);
-  let line2 = useRef(null);
 
-  useEffect(() => {
-    gsap.from([line1, line2], 0.8, {
-      delay: 3,
-      ease: "power3.out",
-      y: 95,
-      stagger: {
-        amount: 0.15
-      }
-    });
-  }, [line1, line2]);
 
   return (
     <WorkHeroCon>
-      <h2 className="largeText desk">
-        <div className='line-wrap'>
-        <div ref={el => (line1 = el)} className='line'>
-        Marketing initiatives that 
-        </div>
-        </div>
-      </h2>
-      <h2 className="largeText desk">
-        <div className='line-wrap'>
-        <div ref={el => (line2 = el)} className='line'>
-        deliver an impact
-        </div>
-        </div>
-      </h2>
-      <p className="blurbText mob">
-        Marketing initiatives that deliver an impact
-      </p>
+      <div>
+        <h2 className="header">
+          Work
+        </h2>
+      </div>
 
-      <img src={BrandMark} className="brandmark" alt="TCA" />
+      <div className="hero-container">
+        <h3 className="hero-text">
+          Instigators of new ideas<br />
+          and never stop refining what<br />
+          and how we’re doing it.
+        </h3>
+        <p style={{ color: '#F2F2F2' }}>Since 2008 Catalyst Africa has been the choice of many B2B businesses around Africa.</p>
+      </div>
+
     </WorkHeroCon>
   );
 }

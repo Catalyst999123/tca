@@ -91,19 +91,19 @@ function Background() {
   const location = useLocation();
   let bgColor = 'transparent'
 
-  if (location.pathname.replace("/","") === 'about')  {
+  if (location.pathname.replace("/", "") === 'about') {
     bgColor = 'red'
-  } else if (location.pathname.replace("/","") === 'services') {
+  } else if (location.pathname.replace("/", "") === 'services') {
     bgColor = 'green'
   } else if (location.pathname.includes('blog') && location.pathname.length < 6) {
     bgColor = 'blueInsight'
   } else if (location.pathname.includes('blog') && location.pathname.length > 6) {
     bgColor = 'blueWork'
   } else if (location.pathname.includes('work') && location.pathname.length < 6) {
-    bgColor = 'yellow'
+    bgColor = 'blueWork'
   } else if (location.pathname.includes('work') && location.pathname.length > 6) {
     bgColor = 'blueWork'
-  } else if (location.pathname.replace("/","") === 'contact') {
+  } else if (location.pathname.replace("/", "") === 'contact') {
     bgColor = 'darkblue'
   } else if (location.pathname.includes("privacy")) {
     bgColor = 'darkGreen'
@@ -112,8 +112,7 @@ function Background() {
   }
 
   return (
-    <BackgroundCon className={bgColor}>
-    </BackgroundCon>
+    <BackgroundCon className={bgColor} />
   );
 }
 

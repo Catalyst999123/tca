@@ -144,7 +144,6 @@ function Team() {
                     <div className="right">
                         <p className="modalName">{selectTeamMember?.name}</p>
                         <p className="modalTitle">{selectTeamMember?.title}</p>
-                        <p className="modalBio">{selectTeamMember?.bio}</p>
                         <p className="question">Question 1</p>
                         <p className="answer">{selectTeamMember?.answer1}</p>
                         <p className="question">Question 2</p>
