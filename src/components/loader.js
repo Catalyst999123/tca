@@ -89,13 +89,13 @@ function Loader(props) {
   return (
     <LoaderCon className={props.loaded ? "disable" : null}>
       <div className="loopOuter">
-      <TextLoop interval="1700" className="scroller">
-        <p>Hello.</p>
-        <p>Sawubona.</p>
-        <p>Sannu.</p>
-        <p>Bonjour.</p>
-        <p>Hujambo.</p>
-      </TextLoop>
+        <TextLoop interval="800" className="scroller">
+          <p>Hello.</p>
+          <p>Sawubona.</p>
+          <p>Sannu.</p>
+          <p>Bonjour.</p>
+          <p>Hujambo.</p>
+        </TextLoop>
       </div>
     </LoaderCon>
   );
