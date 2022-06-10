@@ -15,7 +15,7 @@ const GalleryCon = styled.div`
   }
 
   ${media.laptop`
-    margin: -10vh 16vw 0;
+    margin: -15vh 16vw 0;
     height: 600px;
     display: grid;
     grid-template-columns: 1fr;
@@ -57,7 +57,7 @@ function Gallery() {
   })
 
   useEffect(() => {
-    if(isVisible) {
+    if (isVisible) {
       setShown(true)
     }
   }, [isVisible])
