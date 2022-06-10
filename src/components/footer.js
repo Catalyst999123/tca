@@ -18,7 +18,7 @@ const FooterCon = styled.div`
   background-color: var(--dark-blue);
   background-image: url(${FooterIcon});
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 250px;
 
   .footerTop {
     /* display: flex; */
@@ -109,13 +109,13 @@ const FooterCon = styled.div`
 
       img {
         width: 40px;
-        margin-right: 20px;
+        margin-right: 20px !important;
       }
     }
   }
 
   .desk {
-    display: none;
+    display: none !important;
   }
   .mob {
     display: block;
@@ -220,16 +220,16 @@ const FooterCon = styled.div`
       display: flex;
 
       img {
-        margin-right: 40px;
+        margin-right: 20px;
+        margin-bottom: 40px;
         width: 40px;
       }
     }
 
     .copyText {
-      position: absolute;
-      right: 8vw;
-      bottom: 20px;
-      font-size: 18px;
+      position: absolute; 
+      bottom: 0px;
+      font-size: 12px;
       line-height: 22px;
       color: var(--light-blue);
       letter-spacing: normal;
@@ -282,6 +282,8 @@ const FooterCon = styled.div`
       }
     }
 
+
+   // breakpoint 
   ${media.laptop`
     padding: 80px 8vw;
     position: relative;
@@ -289,6 +291,7 @@ const FooterCon = styled.div`
     min-height: 300px;
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr;
+    background-size: contain;
 
     .middle {
       max-width: 70%;
@@ -328,6 +331,12 @@ const FooterCon = styled.div`
     }
 
     .last {
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 
       a {
         height: fit-content;
@@ -393,7 +402,7 @@ const FooterCon = styled.div`
       display: flex;
 
       img {
-        margin-right: 40px;
+        margin-right: 20px;
         width: 40px;
       }
     }
@@ -439,7 +448,7 @@ const FooterCon = styled.div`
     }
 
     .desk {
-      display: block;
+      display: block !important;
     }
     .mob {
       display: none;
@@ -447,7 +456,7 @@ const FooterCon = styled.div`
   `}
 `
 
-function Footer( { color }) {
+function Footer({ color }) {
 
   return (
     <FooterCon>
@@ -459,7 +468,7 @@ function Footer( { color }) {
           <NavLink activeClassName="menu__link--active" to="/contact" className="menu__link">
             Contact Us
             <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
-              <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z"/>
+              <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z" />
             </svg>
           </NavLink>
         </div>
@@ -497,12 +506,12 @@ function Footer( { color }) {
           <NavLink activeClassName="menu__link--active" to="/contact" className="menu__link">
             Contact Us
             <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
-              <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z"/>
+              <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z" />
             </svg>
           </NavLink>
         </div>
       </div>
-      <p className="copyText"><NavLink to="/privacy">Privacy Policy</NavLink> &nbsp;&nbsp; / &nbsp;&nbsp; © 2022 The Catalyst Africa. All Rights Reserved</p>
+      <p className="copyText"><NavLink to="/privacy">Privacy Policy</NavLink> / © 2022 The Catalyst Africa. All Rights Reserved</p>
     </FooterCon>
   );
 }
