@@ -13,6 +13,10 @@ const ValuesCon = styled.div`
   padding: 25px 5vw;
   background: var(--dark-red);
   position: relative;
+
+  background-image: url(${Mark});
+    background-repeat: no-repeat;
+    background-size: 80vw;
   
   .headingTextL {
     font-size: 24px;
@@ -29,7 +33,7 @@ const ValuesCon = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 60vw;
   }
 
   .desktop {
@@ -93,8 +97,7 @@ const ValuesCon = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url(${Mark});
-    background-repeat: no-repeat;
+    background-size: contain;
 
     .headingTextL {
       font-size: 48px;
@@ -287,75 +290,75 @@ function Values() {
       {/* <img src={Mark} className="mark" alt="mark" /> */}
       <Reveal><Tween from={{ opacity: '0' }} duration={.5}><h2 className="headingTextL">Who we are as Catalysts</h2></Tween></Reveal>
       <div className="values desktop">
-      <Tabs>
-        <TabList>
-          <Tab>
-            <p activeClassName="menu__link--active" className="menu__link">
-            <Reveal><Tween from={{ opacity: '0' }} duration={.5}><span> We are creators</span></Tween></Reveal>
-              <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
-                <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z"/>
-              </svg>
-            </p>
-          </Tab>
-          <Tab>
-            <p activeClassName="menu__link--active" className="menu__link">
-            <Reveal><Tween from={{ opacity: '0' }} duration={.5}><span>Africa is home</span></Tween></Reveal>
-              <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
-                <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z"/>
-              </svg>
-            </p>
-          </Tab>
-          <Tab>
-            <p activeClassName="menu__link--active" className="menu__link">
-            <Reveal><Tween from={{ opacity: '0' }} duration={.5}><span>Above all, we care</span></Tween></Reveal>
-              <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
-                <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z"/>
-              </svg>
-            </p>
-          </Tab>
-        </TabList>
+        <Tabs>
+          <TabList>
+            <Tab>
+              <p activeClassName="menu__link--active" className="menu__link">
+                <Reveal><Tween from={{ opacity: '0' }} duration={.5}><span> We are creators</span></Tween></Reveal>
+                <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z" />
+                </svg>
+              </p>
+            </Tab>
+            <Tab>
+              <p activeClassName="menu__link--active" className="menu__link">
+                <Reveal><Tween from={{ opacity: '0' }} duration={.5}><span>Africa is home</span></Tween></Reveal>
+                <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z" />
+                </svg>
+              </p>
+            </Tab>
+            <Tab>
+              <p activeClassName="menu__link--active" className="menu__link">
+                <Reveal><Tween from={{ opacity: '0' }} duration={.5}><span>Above all, we care</span></Tween></Reveal>
+                <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z" />
+                </svg>
+              </p>
+            </Tab>
+          </TabList>
 
-        <TabPanel>
-          <div className="panel-content">
-             <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
-            <p>
-              <span>We are creators</span><br/><br/>
-              The catalysts of connections and the
-              accelerators of growth. Our experience
-              and curiosity make us think beyond the
-              norm, finding ground-breaking solutions
-              that focus on results.
-            </p>
-            </Tween></Reveal>
-          </div>
-        </TabPanel>
-        <TabPanel>
-          <div className="panel-content">
-             <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
-            <p>
-              <span>Africa is home</span><br/><br/>
-              We understand the land, the people, the
-              environment and the unique challenges
-              that African businesses face.
-            </p>
-            </Tween></Reveal>
-          </div>
-        </TabPanel>
-        <TabPanel>
-          <div className="panel-content">
-             <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
-            <p>
-              <span>Above all, we care</span><br/><br/>
-              We’re not just a marketing agency, but
-              rather collaborators in your success.
-              As your strategic partner, we share our
-              knowledge and experience with passion
-              and purpose. With us, it’s personal.
-            </p>
-            </Tween></Reveal>
-          </div>
-        </TabPanel>
-      </Tabs>
+          <TabPanel>
+            <div className="panel-content">
+              <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
+                <p>
+                  <span>We are creators</span><br /><br />
+                  The catalysts of connections and the
+                  accelerators of growth. Our experience
+                  and curiosity make us think beyond the
+                  norm, finding ground-breaking solutions
+                  that focus on results.
+                </p>
+              </Tween></Reveal>
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="panel-content">
+              <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
+                <p>
+                  <span>Africa is home</span><br /><br />
+                  We understand the land, the people, the
+                  environment and the unique challenges
+                  that African businesses face.
+                </p>
+              </Tween></Reveal>
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="panel-content">
+              <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
+                <p>
+                  <span>Above all, we care</span><br /><br />
+                  We’re not just a marketing agency, but
+                  rather collaborators in your success.
+                  As your strategic partner, we share our
+                  knowledge and experience with passion
+                  and purpose. With us, it’s personal.
+                </p>
+              </Tween></Reveal>
+            </div>
+          </TabPanel>
+        </Tabs>
       </div>
       <div className="values mob">
         <Collapse accordion={true} expandIcon={expandIcon}>
@@ -390,7 +393,7 @@ function Values() {
         </Collapse>
       </div>
 
-      <img src={Mark} className="brandimg mob" alt="brandmark" />
+      {/*    <img src={Mark} className="brandimg mob" alt="brandmark" /> */}
     </ValuesCon>
   );
 }
