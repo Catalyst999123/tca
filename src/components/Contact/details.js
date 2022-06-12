@@ -11,7 +11,8 @@ import media from "../../styles/media"
 import { Reveal, Tween } from "react-gsap"
 
 const DetailsCon = styled.div`
-  padding: 50px 5vw 100px;
+  padding: 50px 20px;
+  padding-bottom: 0;
   display: flex;
   flex-direction: column-reverse;
   p {
@@ -29,14 +30,16 @@ const DetailsCon = styled.div`
       object-fit: cover;
     }
   .contactDetails {
+    
     display: block;
     p {
       margin-bottom: 15px;
+     
     }
     a, .textDesc {
       color: var(--dark-blue);
       text-decoration: none;
-      font-size: 28px;
+      font-size: 18px;
       line-height: 34px;
       margin: 30px 0;
       width: fit-content;
@@ -48,15 +51,45 @@ const DetailsCon = styled.div`
       }
     }
     .social {
-      display: flex;
-      margin-left: 5vw;
+        width: fit-content;
+        margin: 0;
+        display: flex;
 
-      img {
-        width: 50px;
-        height: 50px;
-        margin-right: 20px;
+        a {
+          width: 40px;
+          height: 40px;
+          padding: 0;
+          background: transparent;
+          transition: all .3s linear;
+          display: block;
+          margin-right: 20px;
+
+          &.li {
+            background: url(${Li});
+            background-size: cover;
+
+            &:hover {
+              background: url(${Li2});
+              background-size: cover;
+            }
+          }
+
+          &.fb {
+            background: url(${Fb});
+            background-size: cover;
+
+            &:hover {
+              background: url(${Fb2});
+              background-size: cover;
+            }
+          }
+        }
+
+        img {
+          margin-right: 0;
+          width: 50px;
+        }
       }
-    }
   }
 
   .magnetic-button {
@@ -113,9 +146,13 @@ const DetailsCon = styled.div`
     .contactDetails {
       max-width: 40vw;
       height: 400px;
+      a {
+      font-size: 28px;
+    }
+
       a, .textDesc {
         margin: 0;
-        font-size: 25px;
+        font-size: 25px!important;
         line-height: 30px;
         text-decoration: none;
       &.address {
@@ -168,7 +205,7 @@ const DetailsCon = styled.div`
 
 function Details() {
 
-  const MagneticButton = ({ 
+  const MagneticButton = ({
     children,
     className,
     speed = 1,
@@ -184,7 +221,7 @@ function Details() {
     const rootBound = useRef()
     const itemBound = useRef()
     const diffBound = useRef({ x: 0, y: 0 })
-    
+
     const handleMouseEnter = () => {
       gsap.killTweensOf($item.current)
       gsap.set($hover.current, {
@@ -192,13 +229,13 @@ function Details() {
         borderRadius,
         background: debug ? 'rgba(0, 125, 255, .4)' : 'transparent',
       })
-      
+
       rootBound.current = $root.current.getBoundingClientRect()
       itemBound.current = $item.current.getBoundingClientRect()
       diffBound.current.x = (rootBound.current.width * scale - rootBound.current.width) / 2
       diffBound.current.y = (rootBound.current.height * scale - rootBound.current.height) / 2
     }
-      
+
     const handleMouseLeave = () => {
       gsap.killTweensOf($item.current)
       gsap.to($item.current, {
@@ -211,14 +248,14 @@ function Details() {
         scale: 1
       })
     }
-    
+
     const handleMouseMove = (e) => {
       const x = e.clientX || e.touches[0].clientX
       const y = e.clientY || e.touches[0].clientY
-      
+
       const maxX = (rootBound.current.width - itemBound.current.width) / 2 * tollerance
       const maxY = (rootBound.current.height - itemBound.current.height) / 2 * tollerance
-      
+
       const newX = gsap.utils.mapRange(
         0,
         rootBound.current.width * scale,
@@ -226,7 +263,7 @@ function Details() {
         maxX,
         x - rootBound.current.x + diffBound.current.x
       )
-      
+
       const newY = gsap.utils.mapRange(
         0,
         rootBound.current.height * scale,
@@ -234,7 +271,7 @@ function Details() {
         maxY,
         y - rootBound.current.y + diffBound.current.y
       )
-      
+
       gsap.killTweensOf($item.current)
       gsap.to($item.current, {
         x: newX,
@@ -243,9 +280,9 @@ function Details() {
         duration: speed
       })
     }
-  
+
     return (
-      <button 
+      <button
         ref={$root}
         className={`magnetic-button ${className}`}
         onMouseEnter={handleMouseEnter}
@@ -272,28 +309,28 @@ function Details() {
 
   return (
     <>
-    <DetailsCon>
-      <div className="contactDetails">
-        <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
-        <p className="smallHeadUpper black">Address</p>
-        <p className="textDesc">A fully remote agency</p>
-       </Tween></Reveal>
-        <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
-        <p className="smallHeadUpper black">Email</p>
-        <a href="mailto:hello@thecatalyst.africa">hello@thecatalyst.africa</a>
-        </Tween></Reveal>
-        <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
-        <p className="smallHeadUpper black">Follow us</p>
-        <div className="social">
-          {/* <MagneticButton
+      <DetailsCon>
+        <div className="contactDetails">
+          <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
+            <p className="smallHeadUpper black">Address</p>
+            <p className="textDesc">A fully remote agency</p>
+          </Tween></Reveal>
+          <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
+            <p className="smallHeadUpper black">Email</p>
+            <a href="mailto:hello@thecatalyst.africa">hello@thecatalyst.africa</a>
+          </Tween></Reveal>
+          <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
+            <p className="smallHeadUpper black">Follow us</p>
+            <div className="social">
+              {/* <MagneticButton
             className="button-1"
             scale={1.5}
             tollerance={.8}
             speed={0.5}
             borderRadius='30px'
           > */}
-            <a className="socialimg fb" href="https://www.facebook.com/TheCatalystAfrica/" target="_blank" rel="noreferrer"></a>
-          {/* </MagneticButton>
+              <a className="socialimg fb" href="https://www.facebook.com/TheCatalystAfrica/" target="_blank" rel="noreferrer"></a>
+              {/* </MagneticButton>
           <MagneticButton
             className="button-1"
             scale={1.5}
@@ -301,15 +338,15 @@ function Details() {
             speed={0.5}
             borderRadius='30px'
           > */}
-            <a className="socialimg li" href="https://www.linkedin.com/company/catalyst-africa/" target="_blank" rel="noreferrer"></a>
-          {/* </MagneticButton> */}
-        </div>
-        {/* <p className="smallHeadUpper black">Phone</p>
+              <a className="socialimg li" href="https://www.linkedin.com/company/catalyst-africa/" target="_blank" rel="noreferrer"></a>
+              {/* </MagneticButton> */}
+            </div>
+            {/* <p className="smallHeadUpper black">Phone</p>
         <a href="tel:+27110655000" className="">+27 (0) 11 065 5000</a> */}
-        </Tween></Reveal>
-      </div>
-      <img src={ContactImg} alt="contact" />
-    </DetailsCon>
+          </Tween></Reveal>
+        </div>
+        <img src={ContactImg} alt="contact" />
+      </DetailsCon>
     </>
   );
 }
