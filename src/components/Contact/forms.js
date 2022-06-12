@@ -5,10 +5,24 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ProjectForm from "./projectform";
 import PressForm from "./pressform";
 import JobForm from "./jobform";
-import Select from 'react-select'
+import Select, { components } from 'react-select'
 
-import Collapse, { Panel } from 'rc-collapse'
+
 import 'rc-collapse/assets/index.css'
+
+const DropdownIndicator = props => {
+  return (
+    components.DropdownIndicator && (
+      <components.DropdownIndicator {...props}>
+        <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.1328 2.38383L13.3653 0.616328L7.99906 5.98258L2.63281 0.616328L0.865312 2.38383L7.99906 9.51758L15.1328 2.38383Z" fill="#1A1A9E" />
+        </svg>
+
+      </components.DropdownIndicator>
+    )
+  );
+};
+
 
 const FormsCon = styled.div`
   padding: 50px 20px;
@@ -331,7 +345,7 @@ function expandIcon({ isActive }) {
 }
 
 function Forms() {
-  const [formType, setFormType] = useState('project')
+  const [formType, setFormType] = useState('')
 
   const options = [
     { value: 'project', label: 'Start a project' },
@@ -347,13 +361,40 @@ function Forms() {
       fontSize: "18px",
       lineHeight: "18px",
       padding: "20px",
-      background: "#1A1A9E"
+      marginTop: 0,
+      background: "#1A1A9E",
+
+    }),
+    menu: (provided) => ({
+      ...provided,
+      zIndex: 3,
+      textAlign: "left",
+    }),
+    menuList: (provided) => ({
+      ...provided,
+      background: "#1A1A9E",
+      paddingTop: 0,
     }),
     singleValue: (provided, state) => ({
       ...provided,
       color: '#1A1A9E',
       fontSize: "22px",
       lineHeight: "22px",
+    }),
+    placeholder: (provided, state) => ({
+      ...provided,
+      color: '#1A1A9E',
+      fontSize: "22px",
+      lineHeight: "22px",
+    }),
+    control: (provided, state) => ({
+      ...provided,
+      border: 0,
+      boxShadow: 'none'
+    }),
+    valueContainer: (provided, state) => ({
+      ...provided,
+      padding: "2px 0px"
     })
   };
 
@@ -417,6 +458,7 @@ function Forms() {
           styles={styles}
           defaultValue={options[0]}
           onChange={x => setFormType(x.value)}
+          components={{ DropdownIndicator, IndicatorSeparator: () => null }}
         />
         {formType === 'project' && (
           <ProjectForm />

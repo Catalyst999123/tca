@@ -5,7 +5,8 @@ import { gsap } from 'gsap/all';
 import styled from 'styled-components'
 import media from '../../styles/media';
 
-const FormDiv = styled.form `
+
+const FormDiv = styled.div`
     width: 100%;
 
     .sendDiv {
@@ -38,7 +39,6 @@ const FormDiv = styled.form `
             width: fit-content;
         }
     }
-
 
     .explore {
         margin-top: -10px;
@@ -118,99 +118,17 @@ const FormDiv = styled.form `
         text-transform: uppercase;
     }
 
-    ${media.laptop`
-        width: 40vw;
-        .success {
-            font-size: 16px;
-            line-height: 28px;
-        }
-
-        .sendDiv {
-            display: flex;
-            align-items: center;
-        }
-
-        input {
-            width: 100%;
-            height: 70px;
-            border: none;
-            background: transparent;
-            border-bottom: 2px solid var(--dark-blue);
-            display: flex;
-            margin: 0 0 30px;
-            font-size: 30px;
-            line-height: 30px;
-            color: var(--dark-blue);
-
-            &::placeholder {
-                color: var(--dark-blue);
-            }
-
-            &[type=submit] {
-                border-bottom: none;
-                margin: 20px 0;
-                font-size: 40px;
-                line-height: 30px;
-                margin-right: 30px;
-                width: fit-content;
-                margin-left: 30px;
-            }
-        }
-
-        .circ {
-            border-radius: 50%;
-            transition: all .3s linear;
-            background: transparent;
-            border: 2px solid var(--dark-blue);
-            width: 40px;
-            height: 40px;
-        }
-
-        &:hover {
-            .circ {
-            background: var(--dark-blue);
-            }
-        }
-
-        .magnetic-button {
-            border: none;
-            padding: 0;
-            background: transparent;
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
-            touch-action: none;
-            
-            span {
-                display: inline-block;
-            }
-            
-            &--hover {
-                content: "";
-                position: absolute;
-                z-index: -1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-            }
-        } 
-
-        .button-1 {
-            padding: 40px;
-            font-size: 40px;
-            margin-left: -20px;
-            color: var(--light-green);
-        }
-
-.input {
+    .input {
     position: relative;
     z-index: 1;
     display: inline-block;
-    margin: .5em 1em;
-    width: calc(40vw - 14px);
+    margin: 1em 0em;
+    width: 95%;
     vertical-align: top;
-    padding: 0 0 0 14px;
+     /*    margin: .5em 1em;
+    width: calc(40vw - 14px); */
+   /*  padding: 0 0 0 14px; */
+   padding: 10px;
 
     input {
         margin: 0;
@@ -362,16 +280,117 @@ const FormDiv = styled.form `
 }
 }
 
-
 .formErr {
-          margin-left: 30px;
-          color: var(--dark-red);
-          font-size: 16px;
+  color: var(--dark-red);
+  font-size: 12px;
+    text-transform: uppercase;
+}
+
+    ${media.laptop`
+        width: 40vw;
+
+        .input {
+    margin: .5em 1em;
+    width: calc(40vw - 14px);
+    padding: 0 0 0 14px;
+
+    input {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+ .formErr {
+ margin-left: 30px;
+ font-size: 18px;
+ margin-left: 1px;
+}
+        .success {
+            font-size: 16px;
             line-height: 28px;
-            text-transform: uppercase;
         }
 
-        .explore {
+        .sendDiv {
+            display: flex;
+            align-items: center;
+        }
+
+        input {
+            width: 100%;
+            height: 70px;
+            border: none;
+            background: transparent;
+            border-bottom: 2px solid var(--dark-blue);
+            display: flex;
+            margin: 0 0 30px;
+            font-size: 30px;
+            line-height: 30px;
+            color: var(--dark-blue);
+
+            &::placeholder {
+                color: var(--dark-blue);
+            }
+
+            &[type=submit] {
+                border-bottom: none;
+                margin: 20px 0;
+                font-size: 40px;
+                line-height: 30px;
+                margin-right: 30px;
+                width: fit-content;
+                margin-left: 30px;
+            }
+        }
+
+        .circ {
+            border-radius: 50%;
+            transition: all .3s linear;
+            background: transparent;
+            border: 2px solid var(--dark-blue);
+            width: 40px;
+            height: 40px;
+        }
+
+        &:hover {
+            .circ {
+            background: var(--dark-blue);
+            }
+        }
+
+        .magnetic-button {
+            border: none;
+            padding: 0;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            touch-action: none;
+            
+            span {
+                display: inline-block;
+            }
+            
+            &--hover {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+        } 
+
+        .button-1 {
+            padding: 40px;
+            font-size: 40px;
+            margin-left: -20px;
+            color: var(--light-green);
+        }
+
+
+
+    .explore {
       margin-top: -10px;
       width: fit-content;
       .exploreText {
@@ -431,27 +450,28 @@ const FormDiv = styled.form `
     `}
 `
 
-const PressForm = () => {
-  const { register, handleSubmit, watch, control, formState: { errors } } = useForm();
 
-  const { dirtyFields } = useFormState({
-    control
-  });
+const PressForm = () => {
+    const { register, handleSubmit, watch, control, formState: { errors } } = useForm();
+
+    const { dirtyFields } = useFormState({
+        control
+    });
 
     const [buttonText, setButtonText] = useState('Send')
 
     const formSubmit = data => {
- 
+
         setButtonText('Sending...')
-      
+
         let formData = new FormData()
-      
+
         formData.set("your-name", data.name)
         formData.set("your-email", data.email)
         formData.set("your-number", data.contact)
         formData.set("your-agency", data.agency)
         formData.set("your-message", data.message)
-        
+
         setTimeout(() => {
             document.getElementById("press-form").reset();
             setButtonText('Sent')
@@ -460,10 +480,10 @@ const PressForm = () => {
         setTimeout(() => {
             setButtonText('Send')
         }, 6000);
-           
+
     }
 
-    const MagneticButton = ({ 
+    const MagneticButton = ({
         children,
         className,
         speed = 1,
@@ -472,99 +492,99 @@ const PressForm = () => {
         debug = false,
         borderRadius = 0,
         ...props
-      }) => {
+    }) => {
         const $root = useRef()
         const $item = useRef()
         const $hover = useRef()
         const rootBound = useRef()
         const itemBound = useRef()
         const diffBound = useRef({ x: 0, y: 0 })
-        
+
         const handleMouseEnter = () => {
-          gsap.killTweensOf($item.current)
-          gsap.set($hover.current, {
-            scale: scale,
-            borderRadius,
-            background: debug ? 'rgba(0, 125, 255, .4)' : 'transparent',
-          })
-          
-          rootBound.current = $root.current.getBoundingClientRect()
-          itemBound.current = $item.current.getBoundingClientRect()
-          diffBound.current.x = (rootBound.current.width * scale - rootBound.current.width) / 2
-          diffBound.current.y = (rootBound.current.height * scale - rootBound.current.height) / 2
+            gsap.killTweensOf($item.current)
+            gsap.set($hover.current, {
+                scale: scale,
+                borderRadius,
+                background: debug ? 'rgba(0, 125, 255, .4)' : 'transparent',
+            })
+
+            rootBound.current = $root.current.getBoundingClientRect()
+            itemBound.current = $item.current.getBoundingClientRect()
+            diffBound.current.x = (rootBound.current.width * scale - rootBound.current.width) / 2
+            diffBound.current.y = (rootBound.current.height * scale - rootBound.current.height) / 2
         }
-          
+
         const handleMouseLeave = () => {
-          gsap.killTweensOf($item.current)
-          gsap.to($item.current, {
-            x: 0,
-            y: 0,
-            ease: 'elastic.out(1.1, .4)',
-            duration: 1.2
-          })
-          gsap.set($hover.current, {
-            scale: 1
-          })
+            gsap.killTweensOf($item.current)
+            gsap.to($item.current, {
+                x: 0,
+                y: 0,
+                ease: 'elastic.out(1.1, .4)',
+                duration: 1.2
+            })
+            gsap.set($hover.current, {
+                scale: 1
+            })
         }
-        
+
         const handleMouseMove = (e) => {
-          const x = e.clientX || e.touches[0].clientX
-          const y = e.clientY || e.touches[0].clientY
-          
-          const maxX = (rootBound.current.width - itemBound.current.width) / 2 * tollerance
-          const maxY = (rootBound.current.height - itemBound.current.height) / 2 * tollerance
-          
-          const newX = gsap.utils.mapRange(
-            0,
-            rootBound.current.width * scale,
-            -maxX,
-            maxX,
-            x - rootBound.current.x + diffBound.current.x
-          )
-          
-          const newY = gsap.utils.mapRange(
-            0,
-            rootBound.current.height * scale,
-            -maxY,
-            maxY,
-            y - rootBound.current.y + diffBound.current.y
-          )
-          
-          gsap.killTweensOf($item.current)
-          gsap.to($item.current, {
-            x: newX,
-            y: newY,
-            ease: 'power3.out',
-            duration: speed
-          })
+            const x = e.clientX || e.touches[0].clientX
+            const y = e.clientY || e.touches[0].clientY
+
+            const maxX = (rootBound.current.width - itemBound.current.width) / 2 * tollerance
+            const maxY = (rootBound.current.height - itemBound.current.height) / 2 * tollerance
+
+            const newX = gsap.utils.mapRange(
+                0,
+                rootBound.current.width * scale,
+                -maxX,
+                maxX,
+                x - rootBound.current.x + diffBound.current.x
+            )
+
+            const newY = gsap.utils.mapRange(
+                0,
+                rootBound.current.height * scale,
+                -maxY,
+                maxY,
+                y - rootBound.current.y + diffBound.current.y
+            )
+
+            gsap.killTweensOf($item.current)
+            gsap.to($item.current, {
+                x: newX,
+                y: newY,
+                ease: 'power3.out',
+                duration: speed
+            })
         }
-      
+
         return (
-          <button 
-            ref={$root}
-            className={`magnetic-button ${className}`}
-            onMouseEnter={handleMouseEnter}
-            onMouseMove={handleMouseMove}
-            onTouchMove={handleMouseMove}
-            onTouchStart={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onTouchEnd={handleMouseLeave}
-            {...props}
-          >
-            <span
-              ref={$item}
-              className="magnetic-button--item"
+            <button
+                ref={$root}
+                className={`magnetic-button ${className}`}
+                onMouseEnter={handleMouseEnter}
+                onMouseMove={handleMouseMove}
+                onTouchMove={handleMouseMove}
+                onTouchStart={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onTouchEnd={handleMouseLeave}
+                {...props}
             >
-              {children}
-            </span>
-            <span
-              ref={$hover}
-              className="magnetic-button--hover"
-            />
-          </button>
+                <span
+                    ref={$item}
+                    className="magnetic-button--item"
+                >
+                    {children}
+                </span>
+                <span
+                    ref={$hover}
+                    className="magnetic-button--hover"
+                />
+            </button>
         )
-      }
-    
+    }
+
     return (
         <FormDiv netlify netlify-honeypot="bot-field" className="PressformBottom" id="press-form" name="press" method="post" onSubmit={handleSubmit(formSubmit)}>
             {/* <div> */}
@@ -573,7 +593,7 @@ const PressForm = () => {
 
             <span class={dirtyFields.name ? 'input input--jiro input--filled' : 'input input--jiro'}>
                 {/* <input class="input__field input__field--jiro" type="text" /> */}
-                <input autoComplete={false} type="text" {...register("name", { required: true })} className={errors.name ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro' } />
+                <input autoComplete={false} type="text" {...register("name", { required: true })} className={errors.name ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
                 <label class="input__label input__label--jiro" for="input-10">
                     <span class="input__label-content input__label-content--jiro">Name</span>
                 </label>
@@ -582,7 +602,7 @@ const PressForm = () => {
 
             <span class={dirtyFields.email ? 'input input--jiro input--filled' : 'input input--jiro'}>
                 {/* <input class="input__field input__field--jiro" type="text" /> */}
-                <input type="email" placeholder="Email" {...register("email", { required: true, pattern: {value: /\S+@\S+\.\S+/, message: "Please enter a valid email address."} })}  className={errors.email ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro' } />
+                <input type="email" placeholder="Email" {...register("email", { required: true, pattern: { value: /\S+@\S+\.\S+/, message: "Please enter a valid email address." } })} className={errors.email ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
                 <label class="input__label input__label--jiro" for="input-10">
                     <span class="input__label-content input__label-content--jiro">Email</span>
                 </label>
@@ -591,7 +611,7 @@ const PressForm = () => {
 
             <span class={dirtyFields.contact ? 'input input--jiro input--filled' : 'input input--jiro'}>
                 {/* <input class="input__field input__field--jiro" type="text" /> */}
-                <input type="text" placeholder="Phone" {...register("contact", { required: true })} className={errors.contact ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro' } />
+                <input type="text" placeholder="Phone" {...register("contact", { required: true })} className={errors.contact ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
                 <label class="input__label input__label--jiro" for="input-10">
                     <span class="input__label-content input__label-content--jiro">Contact</span>
                 </label>
@@ -600,7 +620,7 @@ const PressForm = () => {
 
             <span class={dirtyFields.agency ? 'input input--jiro input--filled' : 'input input--jiro'}>
                 {/* <input class="input__field input__field--jiro" type="text" /> */}
-                <input type="text" placeholder="Agency" {...register("agency", { required: false })}  className={errors.agency ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro' } />
+                <input type="text" placeholder="Agency" {...register("agency", { required: false })} className={errors.agency ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
                 <label class="input__label input__label--jiro" for="input-10">
                     <span class="input__label-content input__label-content--jiro">Agency</span>
                 </label>
@@ -609,28 +629,28 @@ const PressForm = () => {
 
             <span class={dirtyFields.message ? 'input input--jiro input--filled' : 'input input--jiro'}>
                 {/* <input class="input__field input__field--jiro" type="text" /> */}
-                <input type="text" placeholder="Message" {...register("message", { required: true })}  className={errors.message  ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro' } />
+                <input type="text" placeholder="Message" {...register("message", { required: true })} className={errors.message ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
                 <label class="input__label input__label--jiro" for="input-10">
                     <span class="input__label-content input__label-content--jiro">Message</span>
                 </label>
             </span>
 
             {errors.message && <span className="formErr">This field is required.</span>}
-            
+
             <div className="sendDiv">
                 <div className="explore">
                     <MagneticButton
-                    className="button-1"
-                    scale={1.5}
-                    tollerance={.8}
-                    speed={0.5}
-                    borderRadius='30px'
+                        className="button-1"
+                        scale={1.5}
+                        tollerance={.8}
+                        speed={0.5}
+                        borderRadius='30px'
                     >
-                    <div className="circ">
-                    <input type="submit" className="exploreText" value={buttonText} />
-                        {/* Explore
+                        <div className="circ">
+                            <input type="submit" className="exploreText" value={buttonText} />
+                            {/* Explore
                     </p> */}
-                    </div>
+                        </div>
                     </MagneticButton>
                 </div>
                 {buttonText === 'Sent' && (
