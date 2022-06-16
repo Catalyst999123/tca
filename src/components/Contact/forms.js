@@ -5,13 +5,28 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ProjectForm from "./projectform";
 import PressForm from "./pressform";
 import JobForm from "./jobform";
-import Select from 'react-select'
+import Select, { components } from 'react-select'
 
-import Collapse, { Panel } from 'rc-collapse'
+
 import 'rc-collapse/assets/index.css'
 
+const DropdownIndicator = props => {
+  return (
+    components.DropdownIndicator && (
+      <components.DropdownIndicator {...props}>
+        <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.1328 2.38383L13.3653 0.616328L7.99906 5.98258L2.63281 0.616328L0.865312 2.38383L7.99906 9.51758L15.1328 2.38383Z" fill="#1A1A9E" />
+        </svg>
+
+      </components.DropdownIndicator>
+    )
+  );
+};
+
+
 const FormsCon = styled.div`
-  padding: 25px 5vw 100px;
+  padding: 50px 20px;
+  padding-top: 0;
   position: relative;
   
   p {
@@ -69,7 +84,7 @@ const FormsCon = styled.div`
   .textDesc {
     color: var(--dark-blue);
     text-decoration: none;
-    font-size: 28px;
+    font-size: 14px;
     line-height: 34px;
     margin: 30px 0;
     padding-top: 15px;
@@ -85,6 +100,7 @@ const FormsCon = styled.div`
       display: block;
       margin-bottom: 30px;
       max-width: 450px;
+      font-size: 18px !important;
     }
     &.desk {
       width: 25vw;
@@ -129,8 +145,16 @@ const FormsCon = styled.div`
     }
   } */
 
+  .intro {
+    width: 100%;
+  }
+
   ${media.laptop`
-    padding: 50px 16vw 150px;
+  padding: 0 16vw 100px;
+  .intro {
+    width: 500px;
+  }
+
 
     .mob {
       display: none;
@@ -193,23 +217,21 @@ const FormsCon = styled.div`
         opacity: 1;
         transition: opacity 0s, stroke-dashoffset 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
+
+      .textDesc {
+     font-size: 25px !important;
+    
+    }
     }
 
     .textDesc {
       margin: 0;
-      font-size: 25px;
+      font-size: 18px;
       line-height: 30px;
       text-decoration: none;
+      margin-bottom: 20px;
       &.address {
         margin: 0px 0;
-      }
-
-      .mob {
-        display: none;
-      }
-
-      .desktop {
-        display: block;
       }
     }
 
@@ -339,13 +361,40 @@ function Forms() {
       fontSize: "18px",
       lineHeight: "18px",
       padding: "20px",
-      background: "#1A1A9E"
+      marginTop: 0,
+      background: "#1A1A9E",
+
+    }),
+    menu: (provided) => ({
+      ...provided,
+      zIndex: 3,
+      textAlign: "left",
+    }),
+    menuList: (provided) => ({
+      ...provided,
+      background: "#1A1A9E",
+      paddingTop: 0,
     }),
     singleValue: (provided, state) => ({
       ...provided,
       color: '#1A1A9E',
       fontSize: "22px",
       lineHeight: "22px",
+    }),
+    placeholder: (provided, state) => ({
+      ...provided,
+      color: '#1A1A9E',
+      fontSize: "22px",
+      lineHeight: "22px",
+    }),
+    control: (provided, state) => ({
+      ...provided,
+      border: 0,
+      boxShadow: 'none'
+    }),
+    valueContainer: (provided, state) => ({
+      ...provided,
+      padding: "2px 0px"
     })
   };
 
@@ -353,63 +402,63 @@ function Forms() {
     <FormsCon>
       {/* <img src={Mark} className="mark" alt="mark" /> */}
       <div className="intro">
-      <p className="smallHeadUpper black">contact form</p>
-      <p className="textDesc mob">We invite you find out more about our work and join the conversation. Write to us, write about us or become part of the team.</p>
-      <p className="textDesc desk">We invite you find out more about our work and join the conversation. Write to us, write about us or become part of the team.</p>
+        <p className="smallHeadUpper black">contact form</p>
+        <p className="textDesc">We invite you find out more about our work and join the conversation. Write to us, write about us or become part of the team.</p>
       </div>
       <div className="Forms desktop">
-      <Tabs>
-        <TabList>
-          <Tab>
-            <p activeClassName="project menu__link--active" className="project menu__link">
-              Start a project
-              <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
-                <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z"/>
-              </svg>
-            </p>
-          </Tab>
-          <Tab>
-            <p activeClassName="press menu__link--active" className="press menu__link">
-              Press
-              <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
-                <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z"/>
-              </svg>
-            </p>
-          </Tab>
-          <Tab>
-            <p activeClassName="menu__link--active" className="menu__link">
-              Become a catalyst
-              <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
-                <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z"/>
-              </svg>
-            </p>
-          </Tab>
-        </TabList>
+        <Tabs>
+          <TabList>
+            <Tab>
+              <p activeClassName="project menu__link--active" className="project menu__link">
+                Start a project
+                <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z" />
+                </svg>
+              </p>
+            </Tab>
+            <Tab>
+              <p activeClassName="press menu__link--active" className="press menu__link">
+                Press
+                <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z" />
+                </svg>
+              </p>
+            </Tab>
+            <Tab>
+              <p activeClassName="menu__link--active" className="menu__link">
+                Become a catalyst
+                <svg width="109" height="47" viewBox="0 0 109 47" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M108.5 23.5C108.5 26.5767 107.056 29.5488 104.36 32.2971C101.662 35.0477 97.7334 37.5476 92.8393 39.6579C83.053 43.8777 69.4983 46.5 54.5 46.5C39.5017 46.5 25.947 43.8777 16.1607 39.6579C11.2666 37.5476 7.33788 35.0477 4.63982 32.2971C1.94395 29.5488 0.5 26.5767 0.5 23.5C0.5 20.4233 1.94395 17.4512 4.63982 14.7029C7.33788 11.9523 11.2666 9.4524 16.1607 7.34213C25.947 3.12231 39.5017 0.5 54.5 0.5C69.4983 0.5 83.053 3.12231 92.8393 7.34213C97.7334 9.4524 101.662 11.9523 104.36 14.7029C107.056 17.4512 108.5 20.4233 108.5 23.5Z" />
+                </svg>
+              </p>
+            </Tab>
+          </TabList>
 
-        <TabPanel>
-          <div className="panel-content">
-            <ProjectForm />
-          </div>
-        </TabPanel>
-        <TabPanel>
-          <div className="panel-content">
-            <PressForm />
-          </div>
-        </TabPanel>
-        <TabPanel>
-          <div className="panel-content">
-            <JobForm />
-          </div>
-        </TabPanel>
-      </Tabs>
+          <TabPanel>
+            <div className="panel-content">
+              <ProjectForm />
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="panel-content">
+              <PressForm />
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="panel-content">
+              <JobForm />
+            </div>
+          </TabPanel>
+        </Tabs>
       </div>
       <div className="Forms mob">
-        <Select 
+        <Select
           className="formSelect"
-          options={options} 
+          options={options}
           styles={styles}
-          defaultValue={formType}
+          defaultValue={options[0]}
           onChange={x => setFormType(x.value)}
+          components={{ DropdownIndicator, IndicatorSeparator: () => null }}
         />
         {formType === 'project' && (
           <ProjectForm />

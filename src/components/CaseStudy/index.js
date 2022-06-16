@@ -24,7 +24,7 @@ import TwitterHov from '../../images/social/hovertwitter.svg'
 import { Tween } from "react-gsap";
 
 const BodyCon = styled.div`
-  margin: 50px 20px 100px; 
+  margin: 0px 20px 100px; 
   
   h2 {
     margin: 20px 0 30px;
@@ -109,38 +109,17 @@ const BodyCon = styled.div`
     }
   }
 
+  .share{
+    display: none;
+  }
+
   ${media.laptop`
     margin: 0 0 150px 0;
 
     display: grid;
     grid-template-columns: 1fr 7fr 1fr;
 
-    .progress {
-      width: 16vw;
-      height: 100%;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      
-      .outer {
-        width: 5vw;
-        background: var(--light-blue);
-        height: 4px;
-        border-radius: 4px;
-        position: sticky;
-        left: 0;
-        top: 85vh;
-        /* margin-top: 150px; */
-
-        #scroll-progress {
-          width: var(--scrolled);
-          height: 4px;
-          border-radius: 4px;
-          background: var(--dark-blue);
-        }
-      }
-    }
-
+ 
     .share {
       width: 16vw;
       height: 100%;
@@ -629,11 +608,7 @@ function CaseStudy() {
           </div>
         </Tween>
 
-        <div className="progress">
-          <div className="outer">
-            <div id="scroll-progress"></div>
-          </div>
-        </div>
+
       </BodyCon>
     </>
   );

@@ -125,99 +125,17 @@ const FormDiv = styled.div`
         text-transform: uppercase;
     }
 
-    ${media.laptop`
-        width: 40vw;
-        .success {
-            font-size: 16px;
-            line-height: 28px;
-        }
-
-        .sendDiv {
-            display: flex;
-            align-items: center;
-        }
-
-        input {
-            width: 100%;
-            height: 70px;
-            border: none;
-            background: transparent;
-            border-bottom: 2px solid var(--dark-blue);
-            display: flex;
-            margin: 0 0 30px;
-            font-size: 30px;
-            line-height: 30px;
-            color: var(--dark-blue);
-
-            &::placeholder {
-                color: var(--dark-blue);
-            }
-
-            &[type=submit] {
-                border-bottom: none;
-                margin: 20px 0;
-                font-size: 40px;
-                line-height: 30px;
-                margin-right: 30px;
-                width: fit-content;
-                margin-left: 30px;
-            }
-        }
-
-        .circ {
-            border-radius: 50%;
-            transition: all .3s linear;
-            background: transparent;
-            border: 2px solid var(--dark-blue);
-            width: 40px;
-            height: 40px;
-        }
-
-        &:hover {
-            .circ {
-            background: var(--dark-blue);
-            }
-        }
-
-        .magnetic-button {
-            border: none;
-            padding: 0;
-            background: transparent;
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
-            touch-action: none;
-            
-            span {
-                display: inline-block;
-            }
-            
-            &--hover {
-                content: "";
-                position: absolute;
-                z-index: -1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-            }
-        } 
-
-        .button-1 {
-            padding: 40px;
-            font-size: 40px;
-            margin-left: -20px;
-            color: var(--light-green);
-        }
-
-.input {
+    .input {
     position: relative;
     z-index: 1;
     display: inline-block;
-    margin: .5em 1em;
-    width: calc(40vw - 14px);
+    margin: 1em 0em;
+    width: 95%;
     vertical-align: top;
-    padding: 0 0 0 14px;
+     /*    margin: .5em 1em;
+    width: calc(40vw - 14px); */
+   /*  padding: 0 0 0 14px; */
+   padding: 10px;
 
     input {
         margin: 0;
@@ -370,12 +288,114 @@ const FormDiv = styled.div`
 }
 
 .formErr {
-  margin-left: 30px;
   color: var(--dark-red);
-  font-size: 16px;
-    line-height: 28px;
+  font-size: 12px;
     text-transform: uppercase;
 }
+
+    ${media.laptop`
+        width: 40vw;
+
+        .input {
+    margin: .5em 1em;
+    width: calc(40vw - 14px);
+    padding: 0 0 0 14px;
+
+    input {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+ .formErr {
+ margin-left: 30px;
+ font-size: 18px;
+ margin-left: 1px;
+}
+        .success {
+            font-size: 16px;
+            line-height: 28px;
+        }
+
+        .sendDiv {
+            display: flex;
+            align-items: center;
+        }
+
+        input {
+            width: 100%;
+            height: 70px;
+            border: none;
+            background: transparent;
+            border-bottom: 2px solid var(--dark-blue);
+            display: flex;
+            margin: 0 0 30px;
+            font-size: 30px;
+            line-height: 30px;
+            color: var(--dark-blue);
+
+            &::placeholder {
+                color: var(--dark-blue);
+            }
+
+            &[type=submit] {
+                border-bottom: none;
+                margin: 20px 0;
+                font-size: 40px;
+                line-height: 30px;
+                margin-right: 30px;
+                width: fit-content;
+                margin-left: 30px;
+            }
+        }
+
+        .circ {
+            border-radius: 50%;
+            transition: all .3s linear;
+            background: transparent;
+            border: 2px solid var(--dark-blue);
+            width: 40px;
+            height: 40px;
+        }
+
+        &:hover {
+            .circ {
+            background: var(--dark-blue);
+            }
+        }
+
+        .magnetic-button {
+            border: none;
+            padding: 0;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            touch-action: none;
+            
+            span {
+                display: inline-block;
+            }
+            
+            &--hover {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+        } 
+
+        .button-1 {
+            padding: 40px;
+            font-size: 40px;
+            margin-left: -20px;
+            color: var(--light-green);
+        }
+
+
 
     .explore {
       margin-top: -10px;
@@ -444,7 +464,7 @@ const JobForm = () => {
         action: '',
         honeypotName: 'bot-field',
         onSuccess: (response, context) => {
-          console.log('Successfully sent form data to Netlify Server')
+            console.log('Successfully sent form data to Netlify Server')
         }
     })
 
@@ -455,13 +475,13 @@ const JobForm = () => {
     const [buttonText, setButtonText] = useState('Send')
 
     const formSubmit = data => {
- 
+
         console.log(data);
 
         setButtonText('Sending...')
-      
+
         let formData = new FormData()
-      
+
         formData.set("your-name", data.name)
         formData.set("your-email", data.email)
         formData.set("your-number", data.contact)
@@ -469,7 +489,7 @@ const JobForm = () => {
         formData.set("your-message", data.message)
 
         netlify.handleSubmit(null, data)
-        
+
         setTimeout(() => {
             document.getElementById("job-form").reset();
             setButtonText('Sent')
@@ -478,10 +498,10 @@ const JobForm = () => {
         setTimeout(() => {
             setButtonText('Send')
         }, 6000);
-           
+
     }
 
-    const MagneticButton = ({ 
+    const MagneticButton = ({
         children,
         className,
         speed = 1,
@@ -490,188 +510,188 @@ const JobForm = () => {
         debug = false,
         borderRadius = 0,
         ...props
-      }) => {
+    }) => {
         const $root = useRef()
         const $item = useRef()
         const $hover = useRef()
         const rootBound = useRef()
         const itemBound = useRef()
         const diffBound = useRef({ x: 0, y: 0 })
-        
+
         const handleMouseEnter = () => {
-          gsap.killTweensOf($item.current)
-          gsap.set($hover.current, {
-            scale: scale,
-            borderRadius,
-            background: debug ? 'rgba(0, 125, 255, .4)' : 'transparent',
-          })
-          
-          rootBound.current = $root.current.getBoundingClientRect()
-          itemBound.current = $item.current.getBoundingClientRect()
-          diffBound.current.x = (rootBound.current.width * scale - rootBound.current.width) / 2
-          diffBound.current.y = (rootBound.current.height * scale - rootBound.current.height) / 2
+            gsap.killTweensOf($item.current)
+            gsap.set($hover.current, {
+                scale: scale,
+                borderRadius,
+                background: debug ? 'rgba(0, 125, 255, .4)' : 'transparent',
+            })
+
+            rootBound.current = $root.current.getBoundingClientRect()
+            itemBound.current = $item.current.getBoundingClientRect()
+            diffBound.current.x = (rootBound.current.width * scale - rootBound.current.width) / 2
+            diffBound.current.y = (rootBound.current.height * scale - rootBound.current.height) / 2
         }
-          
+
         const handleMouseLeave = () => {
-          gsap.killTweensOf($item.current)
-          gsap.to($item.current, {
-            x: 0,
-            y: 0,
-            ease: 'elastic.out(1.1, .4)',
-            duration: 1.2
-          })
-          gsap.set($hover.current, {
-            scale: 1
-          })
+            gsap.killTweensOf($item.current)
+            gsap.to($item.current, {
+                x: 0,
+                y: 0,
+                ease: 'elastic.out(1.1, .4)',
+                duration: 1.2
+            })
+            gsap.set($hover.current, {
+                scale: 1
+            })
         }
-        
+
         const handleMouseMove = (e) => {
-          const x = e.clientX || e.touches[0].clientX
-          const y = e.clientY || e.touches[0].clientY
-          
-          const maxX = (rootBound.current.width - itemBound.current.width) / 2 * tollerance
-          const maxY = (rootBound.current.height - itemBound.current.height) / 2 * tollerance
-          
-          const newX = gsap.utils.mapRange(
-            0,
-            rootBound.current.width * scale,
-            -maxX,
-            maxX,
-            x - rootBound.current.x + diffBound.current.x
-          )
-          
-          const newY = gsap.utils.mapRange(
-            0,
-            rootBound.current.height * scale,
-            -maxY,
-            maxY,
-            y - rootBound.current.y + diffBound.current.y
-          )
-          
-          gsap.killTweensOf($item.current)
-          gsap.to($item.current, {
-            x: newX,
-            y: newY,
-            ease: 'power3.out',
-            duration: speed
-          })
+            const x = e.clientX || e.touches[0].clientX
+            const y = e.clientY || e.touches[0].clientY
+
+            const maxX = (rootBound.current.width - itemBound.current.width) / 2 * tollerance
+            const maxY = (rootBound.current.height - itemBound.current.height) / 2 * tollerance
+
+            const newX = gsap.utils.mapRange(
+                0,
+                rootBound.current.width * scale,
+                -maxX,
+                maxX,
+                x - rootBound.current.x + diffBound.current.x
+            )
+
+            const newY = gsap.utils.mapRange(
+                0,
+                rootBound.current.height * scale,
+                -maxY,
+                maxY,
+                y - rootBound.current.y + diffBound.current.y
+            )
+
+            gsap.killTweensOf($item.current)
+            gsap.to($item.current, {
+                x: newX,
+                y: newY,
+                ease: 'power3.out',
+                duration: speed
+            })
         }
-      
+
         return (
-          <button 
-            ref={$root}
-            className={`magnetic-button ${className}`}
-            onMouseEnter={handleMouseEnter}
-            onMouseMove={handleMouseMove}
-            onTouchMove={handleMouseMove}
-            onTouchStart={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onTouchEnd={handleMouseLeave}
-            {...props}
-          >
-            <span
-              ref={$item}
-              className="magnetic-button--item"
+            <button
+                ref={$root}
+                className={`magnetic-button ${className}`}
+                onMouseEnter={handleMouseEnter}
+                onMouseMove={handleMouseMove}
+                onTouchMove={handleMouseMove}
+                onTouchStart={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onTouchEnd={handleMouseLeave}
+                {...props}
             >
-              {children}
-            </span>
-            <span
-              ref={$hover}
-              className="magnetic-button--hover"
-            />
-          </button>
+                <span
+                    ref={$item}
+                    className="magnetic-button--item"
+                >
+                    {children}
+                </span>
+                <span
+                    ref={$hover}
+                    className="magnetic-button--hover"
+                />
+            </button>
         )
-      }
-    
+    }
+
     return (
         <FormDiv>
-        <NetlifyFormProvider {...netlify}>
-          <NetlifyFormComponent onSubmit={handleSubmit(formSubmit)}>
-        {/* <FormDiv netlify netlify-honeypot="bot-field" className="JobformBottom" id="job-form" name="career" method="post" onSubmit={handleSubmit(formSubmit)}> */}
-            {/* <div> */}
+            <NetlifyFormProvider {...netlify}>
+                <NetlifyFormComponent onSubmit={handleSubmit(formSubmit)}>
+                    {/* <FormDiv netlify netlify-honeypot="bot-field" className="JobformBottom" id="job-form" name="career" method="post" onSubmit={handleSubmit(formSubmit)}> */}
+                    {/* <div> */}
 
-            <input type="hidden" name="form-name" value="career" />
+                    <input type="hidden" name="form-name" value="career" />
 
-            <span class={dirtyFields.name ? 'input input--jiro input--filled' : 'input input--jiro'}>
-                {/* <input class="input__field input__field--jiro" type="text" /> */}
-                <input autoComplete={false} type="text" {...register("name", { required: true })} className={errors.name ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro' } />
-                <label class="input__label input__label--jiro" for="input-10">
-                    <span class="input__label-content input__label-content--jiro">Name</span>
-                </label>
-            </span>
-            {errors.name && <span className="formErr">This field is required.</span>}
+                    <span class={dirtyFields.name ? 'input input--jiro input--filled' : 'input input--jiro'}>
+                        {/* <input class="input__field input__field--jiro" type="text" /> */}
+                        <input autoComplete={false} type="text" {...register("name", { required: true })} className={errors.name ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
+                        <label class="input__label input__label--jiro" for="input-10">
+                            <span class="input__label-content input__label-content--jiro">Name</span>
+                        </label>
+                    </span>
+                    {errors.name && <span className="formErr">This field is required.</span>}
 
-            <span class={dirtyFields.email ? 'input input--jiro input--filled' : 'input input--jiro'}>
-                {/* <input class="input__field input__field--jiro" type="text" /> */}
-                <input autoComplete={false} type="email" placeholder="Email" {...register("email", { required: true, pattern: {value: /\S+@\S+\.\S+/, message: "Please enter a valid email address."} })}  className={errors.email ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
-                <label class="input__label input__label--jiro" for="input-10">
-                    <span class="input__label-content input__label-content--jiro">Email</span>
-                </label>
-            </span>
-            {errors.email && <span className="formErr">{errors.email.message}</span>}
-            {errors.email && <span className="formErr">This field is required.</span>}
+                    <span class={dirtyFields.email ? 'input input--jiro input--filled' : 'input input--jiro'}>
+                        {/* <input class="input__field input__field--jiro" type="text" /> */}
+                        <input autoComplete={false} type="email" placeholder="Email" {...register("email", { required: true, pattern: { value: /\S+@\S+\.\S+/, message: "Please enter a valid email address." } })} className={errors.email ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
+                        <label class="input__label input__label--jiro" for="input-10">
+                            <span class="input__label-content input__label-content--jiro">Email</span>
+                        </label>
+                    </span>
+                    {errors.email && <span className="formErr">{errors.email.message}</span>}
+                    {errors.email && <span className="formErr">This field is required.</span>}
 
-            <span class={dirtyFields.contact ? 'input input--jiro input--filled' : 'input input--jiro'}>
-                {/* <input class="input__field input__field--jiro" type="text" /> */}
-                <input autoComplete={false} type="text" placeholder="Phone" {...register("contact", { required: true })} className={errors.contact ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
-                <label class="input__label input__label--jiro" for="input-10">
-                    <span class="input__label-content input__label-content--jiro">Phone</span>
-                </label>
-            </span>
-            {errors.contact && <span className="formErr">This field is required.</span>}
+                    <span class={dirtyFields.contact ? 'input input--jiro input--filled' : 'input input--jiro'}>
+                        {/* <input class="input__field input__field--jiro" type="text" /> */}
+                        <input autoComplete={false} type="text" placeholder="Phone" {...register("contact", { required: true })} className={errors.contact ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
+                        <label class="input__label input__label--jiro" for="input-10">
+                            <span class="input__label-content input__label-content--jiro">Phone</span>
+                        </label>
+                    </span>
+                    {errors.contact && <span className="formErr">This field is required.</span>}
 
-            <span class={dirtyFields.role ? 'input input--jiro input--filled' : 'input input--jiro'}>
-                {/* <input class="input__field input__field--jiro" type="text" /> */}
-                <input autoComplete={false} type="text" placeholder="Role" {...register("role", { required: false })}  className={errors.role ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
-                <label class="input__label input__label--jiro" for="input-10">
-                    <span class="input__label-content input__label-content--jiro">Role</span>
-                </label>
-            </span>
-            {errors.role && <span className="formErr">This field is required.</span>}
+                    <span class={dirtyFields.role ? 'input input--jiro input--filled' : 'input input--jiro'}>
+                        {/* <input class="input__field input__field--jiro" type="text" /> */}
+                        <input autoComplete={false} type="text" placeholder="Role" {...register("role", { required: false })} className={errors.role ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
+                        <label class="input__label input__label--jiro" for="input-10">
+                            <span class="input__label-content input__label-content--jiro">Role</span>
+                        </label>
+                    </span>
+                    {errors.role && <span className="formErr">This field is required.</span>}
 
-            <span class={dirtyFields.cv ? 'input input--jiro input--filled' : 'input input--jiro'}>
-                {/* <input class="input__field input__field--jiro" type="text" /> */}
-                <input autoComplete={false} type="text" placeholder="Upload CV" {...register("cv", { required: true })}  className={errors.cv ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
-                <label class="input__label input__label--jiro" for="input-10">
-                    <span class="input__label-content input__label-content--jiro">Upload CV</span>
-                </label>
-            </span>
-            {errors.cv && <span className="formErr">This field is required.</span>}
-            
-            <div className="sendDiv">
-                <div className="explore">
-                    <MagneticButton
-                    className="button-1"
-                    scale={1.5}
-                    tollerance={.8}
-                    speed={0.5}
-                    borderRadius='30px'
-                    >
-                    <div className="circ">
-                    <input type="submit" className="exploreText" value={buttonText} />
-                        {/* Explore
+                    <span class={dirtyFields.cv ? 'input input--jiro input--filled' : 'input input--jiro'}>
+                        {/* <input class="input__field input__field--jiro" type="text" /> */}
+                        <input autoComplete={false} type="text" placeholder="Upload CV" {...register("cv", { required: true })} className={errors.cv ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
+                        <label class="input__label input__label--jiro" for="input-10">
+                            <span class="input__label-content input__label-content--jiro">Upload CV</span>
+                        </label>
+                    </span>
+                    {errors.cv && <span className="formErr">This field is required.</span>}
+
+                    <div className="sendDiv">
+                        <div className="explore">
+                            <MagneticButton
+                                className="button-1"
+                                scale={1.5}
+                                tollerance={.8}
+                                speed={0.5}
+                                borderRadius='30px'
+                            >
+                                <div className="circ">
+                                    <input type="submit" className="exploreText" value={buttonText} />
+                                    {/* Explore
                     </p> */}
-                    </div>
-                    </MagneticButton>
-                </div>
-                {buttonText === 'Sent' && (
-                    <p className="success">Thank you for your message, we will be in touch shortly.</p>
-                )}
+                                </div>
+                            </MagneticButton>
+                        </div>
+                        {buttonText === 'Sent' && (
+                            <p className="success">Thank you for your message, we will be in touch shortly.</p>
+                        )}
 
-        {netlify.success && (
-          <p >
-            Thanks for contacting us!
-          </p>
-        )}
-        {netlify.error && (
-          <p>
-            Sorry, we could not reach servers. Because it only works on Netlify,
-            our GitHub demo does not provide a response.
-          </p>
-        )}
-            </div>
-        </NetlifyFormComponent>
-        </NetlifyFormProvider>
+                        {netlify.success && (
+                            <p >
+                                Thanks for contacting us!
+                            </p>
+                        )}
+                        {netlify.error && (
+                            <p>
+                                Sorry, we could not reach servers. Because it only works on Netlify,
+                                our GitHub demo does not provide a response.
+                            </p>
+                        )}
+                    </div>
+                </NetlifyFormComponent>
+            </NetlifyFormProvider>
         </FormDiv>
     );
 };
