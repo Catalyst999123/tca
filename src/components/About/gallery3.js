@@ -15,8 +15,8 @@ const Gallery3Con = styled.div`
 
   ${media.laptop`
     /* margin: -10vh 120px 0; */
-    margin: 150px 16vw 100px 30vw;
-    height: 450px;
+    margin: 150px 16vw 100px 16vw;
+    height: 600px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -24,7 +24,7 @@ const Gallery3Con = styled.div`
     .overlay {
       height: 100%;
       width: 100%;
-      max-height: 450px;
+      max-height: 600px;
       object-fit: cover;
       margin: 0;
       background: var(--dark-red);
@@ -38,7 +38,7 @@ const Gallery3Con = styled.div`
     }
     img {
       height: 100%;
-      max-height: 450px;
+      max-height: 600px;
       width: 100%;
       object-fit: cover;
       margin: 0;
@@ -57,7 +57,7 @@ function Gallery3() {
   })
 
   useEffect(() => {
-    if(isVisible) {
+    if (isVisible) {
       setShown(true)
     }
   }, [isVisible])
