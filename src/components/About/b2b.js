@@ -5,7 +5,7 @@ import media from '../../styles/media'
 
 const B2BCon = styled.div`
   height: auto;
-  margin: 95px 5vw 65px;
+  margin: -15vh 16vw 0;
   display: block;
   /* padding: 0 14vw 0 12vw; */
   h2 {
@@ -14,9 +14,6 @@ const B2BCon = styled.div`
     margin: 40px 0;
   }
   p {
-    &:nth-child(1) {
-      margin-right: 40px;
-    }
     font-size: 20px;
     line-height: 24px;
     color: var(--dark-red);
@@ -24,7 +21,7 @@ const B2BCon = styled.div`
 
   ${media.laptop`
     margin: 150px 0 0px;
-    padding: 0 20vw 0 16vw;
+    padding: 0 16vw;
     h2 {
       font-weight: normal;
       color: var(--dark-red);
@@ -34,7 +31,6 @@ const B2BCon = styled.div`
     p {
       font-size: 25px;
       line-height: 35px;
-      max-width: 60%;
     }
   `}
 `
@@ -46,13 +42,13 @@ function B2B() {
         We are Africa's B2B marketing agency of choice.
       </h2> */}
       <Reveal><Tween from={{ opacity: '0' }} duration={.5}>
-      <p className="bodyText">
-      The Catalyst Africa is the B2B marketing agency of choice, known for our impactful results and solutionist thinking. A multi-award-winning agency working with a diverse customer set, across both B2B and B2C. We want to increase our African presence, spreading our footprint by collaborating and building partnerships across the continent.
-      </p></Tween></Reveal>
+        <p className="bodyText">
+          The Catalyst Africa is the B2B marketing agency of choice, known for our impactful results and solutionist thinking. A multi-award-winning agency working with a diverse customer set, across both B2B and B2C. We want to increase our African presence, spreading our footprint by collaborating and building partnerships across the continent.
+        </p></Tween></Reveal>
       <Reveal><Tween from={{ opacity: '0' }} duration={.5} delay={.5}>
-      <p className="bodyText">
-      Operating for more than 12 years as a full service agency, our clients – corporate, small to medium businesses – trust us with marketing initiatives that accelerate demand for their products and solutions. We understand our customers and their customers. Acting as an extension of their team, available for full support.
-      </p></Tween></Reveal>
+        <p className="bodyText">
+          Operating for more than 12 years as a full service agency, our clients – corporate, small to medium businesses – trust us with marketing initiatives that accelerate demand for their products and solutions. We understand our customers and their customers. Acting as an extension of their team, available for full support.
+        </p></Tween></Reveal>
     </B2BCon>
   );
 }
