@@ -160,7 +160,6 @@ padding-top: 150px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 5px;
-      grid-row-gap: 30px;
     }
 
     .companylogo {
@@ -188,7 +187,6 @@ padding-top: 150px;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-column-gap: 10px;
-      grid-row-gap: 30px;
     }
 
     .work-brandmark{
