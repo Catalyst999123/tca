@@ -6,6 +6,7 @@
   "dependencies": {
     "@prismicio/client": "^6.4.3",
     "@prismicio/react": "^2.3.0",
+    "@sendgrid/mail": "^7.7.0",
     "@steveeeie/react-page-transition": "^1.2.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",

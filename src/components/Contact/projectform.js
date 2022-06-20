@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import media from '../../styles/media';
 
 
-const FormDiv = styled.div`
+const FormDiv = styled.form`
     width: 100%;
 
     .sendDiv {
@@ -303,7 +303,7 @@ const FormDiv = styled.div`
  .formErr {
  margin-left: 30px;
  font-size: 18px;
- margin-left: 1px;
+ 
 }
         .success {
             font-size: 16px;
@@ -472,6 +472,8 @@ const ProjectForm = () => {
         formData.set("your-company", data.company)
         formData.set("your-message", data.message)
 
+        console.log(data)
+
         setTimeout(() => {
             document.getElementById("project-form").reset();
             setButtonText('Sent')
@@ -586,7 +588,7 @@ const ProjectForm = () => {
     }
 
     return (
-        <FormDiv netlify netlify-honeypot="bot-field" className="projectformBottom" id="project-form" name="project" method="post" onSubmit={handleSubmit(formSubmit)}>
+        <FormDiv data-netlify="true" netlify-honeypot="bot-field" className="projectformBottom" id="project-form" name="project" method="post" onSubmit={handleSubmit(formSubmit)}>
             {/* <div> */}
 
             <input type="hidden" name="form-name" value="project" />
@@ -649,6 +651,9 @@ const ProjectForm = () => {
                         tollerance={.8}
                         speed={0.5}
                         borderRadius='30px'
+                        onClick={() => {
+                            handleSubmit(formSubmit)
+                        }}
                     >
                         <div className="circ">
                             <input type="submit" className="exploreText" value={buttonText} />

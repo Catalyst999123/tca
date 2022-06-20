@@ -4,9 +4,10 @@ import { gsap } from 'gsap/all';
 
 import styled from 'styled-components'
 import media from '../../styles/media';
+import { mailer } from '../../utils/mailer';
 
 
-const FormDiv = styled.div`
+const FormDiv = styled.form`
     width: 100%;
 
     .sendDiv {
@@ -303,7 +304,7 @@ const FormDiv = styled.div`
  .formErr {
  margin-left: 30px;
  font-size: 18px;
- margin-left: 1px;
+ 
 }
         .success {
             font-size: 16px;
@@ -460,17 +461,24 @@ const PressForm = () => {
 
     const [buttonText, setButtonText] = useState('Send')
 
-    const formSubmit = data => {
+    const formSubmit = async ({ name, message, email, contact, agency }) => {
 
         setButtonText('Sending...')
 
-        let formData = new FormData()
+        await mailer({
+            subject: 'NEW PRESS MAIL',
+            text: `
+            Hi there, you have a new email from ${name}.
+            
+            Their message: ${message}
+           
+            Contact details
+            - ${email}
+            - ${contact}
+            - ${agency}
+            `,
+        })
 
-        formData.set("your-name", data.name)
-        formData.set("your-email", data.email)
-        formData.set("your-number", data.contact)
-        formData.set("your-agency", data.agency)
-        formData.set("your-message", data.message)
 
         setTimeout(() => {
             document.getElementById("press-form").reset();
@@ -586,7 +594,7 @@ const PressForm = () => {
     }
 
     return (
-        <FormDiv netlify netlify-honeypot="bot-field" className="PressformBottom" id="press-form" name="press" method="post" onSubmit={handleSubmit(formSubmit)}>
+        <FormDiv className="PressformBottom" onSubmit={handleSubmit(formSubmit)}>
             {/* <div> */}
 
             <input type="hidden" name="form-name" value="press" />

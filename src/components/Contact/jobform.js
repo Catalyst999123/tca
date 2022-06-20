@@ -13,7 +13,7 @@ import { gsap } from 'gsap/all';
 import styled from 'styled-components'
 import media from '../../styles/media';
 
-const FormDiv = styled.div`
+const FormDiv = styled.form`
     width: 100%;
 
     .sendDiv {
@@ -310,7 +310,7 @@ const FormDiv = styled.div`
  .formErr {
  margin-left: 30px;
  font-size: 18px;
- margin-left: 1px;
+ 
 }
         .success {
             font-size: 16px;
@@ -461,7 +461,6 @@ const JobForm = () => {
     const { register, handleSubmit, watch, control, formState: { errors } } = useForm();
     const netlify = useNetlifyForm({
         name: 'career-form',
-        action: '',
         honeypotName: 'bot-field',
         onSuccess: (response, context) => {
             console.log('Successfully sent form data to Netlify Server')
