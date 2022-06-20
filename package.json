@@ -45,13 +45,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build:app": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:lambda": "netlify build",
     "netlify:serve": "netlify functions:serve",
-    "dev": "netlify dev",
-    "build": "npm run build:lambda && build:app"
+    "dev": "netlify dev"
   },
   "eslintConfig": {
     "extends": [

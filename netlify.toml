@@ -1,6 +1,9 @@
 [Settings]
   ID = "ac334778-789c-4880-8384-234d50c1a7de"
 
+[functions]
+  node_bundler = "esbuild"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -10,5 +13,3 @@
 [build]
   command = "yarn build"
 
-[functions]
-  node_bundler = "esbuild"
