@@ -38,7 +38,7 @@ function App() {
       )
       if (response) {
         localStorage.setItem('casestudyNo', response.results.length)
-        console.log(response.results);
+
         localStorage.setItem('caseStudies', JSON.stringify(response.results))
       }
     }
@@ -52,7 +52,7 @@ function App() {
       )
       if (response) {
         localStorage.setItem('blogNo', response.results.length)
-        console.log(response.results);
+
         localStorage.setItem('blogs', JSON.stringify(response.results))
       }
     }

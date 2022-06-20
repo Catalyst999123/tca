@@ -4,6 +4,7 @@ import { gsap } from 'gsap/all';
 
 import styled from 'styled-components'
 import media from '../../styles/media';
+import { mailer } from '../../utils/mailer';
 
 
 const FormDiv = styled.form`
@@ -460,19 +461,23 @@ const ProjectForm = () => {
 
     const [buttonText, setButtonText] = useState('Send')
 
-    const formSubmit = data => {
+    const formSubmit = async ({ name, message, email, contact, company }) => {
 
         setButtonText('Sending...')
 
-        let formData = new FormData()
+        await mailer(
+            'NEW PROJECT MAIL',
+            `
+Hi there, you have a new email from ${name}.
 
-        formData.set("your-name", data.name)
-        formData.set("your-email", data.email)
-        formData.set("your-number", data.contact)
-        formData.set("your-company", data.company)
-        formData.set("your-message", data.message)
+Their message: ${message}
 
-        console.log(data)
+Contact details
+${email}
+${contact}
+${company}
+`.trim(),
+        )
 
         setTimeout(() => {
             document.getElementById("project-form").reset();
@@ -589,7 +594,7 @@ const ProjectForm = () => {
 
     return (
         <FormDiv data-netlify="true" netlify-honeypot="bot-field" className="projectformBottom" id="project-form" name="project" method="post" onSubmit={handleSubmit(formSubmit)}>
-            {/* <div> */}
+
 
             <input type="hidden" name="form-name" value="project" />
 

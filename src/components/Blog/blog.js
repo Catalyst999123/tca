@@ -296,7 +296,7 @@ const Blogs = () => {
       Prismic.Predicates.at('document.type', 'blogpost')
     )
     if (response) {
-      console.log(response.results);
+
       localStorage.setItem('blogNo', response.results.length)
       setDocData(response.results)
 
@@ -336,7 +336,7 @@ const Blogs = () => {
         Prismic.Predicates.at('document.type', 'blogpost')
       )
       if (response) {
-        console.log(response.results);
+
         localStorage.setItem('blogNo', response.results.length)
         setDocData(response.results)
       }

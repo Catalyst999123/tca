@@ -12,14 +12,12 @@ const mailer = async (message) => {
             to: ['andrew@ctrlr.studio', 'bruno@ctrlr.studio']
         })
     } catch (err) {
-        console.log({ err });
+        console.log({ err: JSON.stringify(err) });
     }
 }
 
 exports.handler = async function ({ body }) {
     const data = JSON.parse(body)
-
-    console.log(data)
 
     await mailer(data)
 

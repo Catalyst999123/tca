@@ -1,10 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {
-    useNetlifyForm,
-    NetlifyFormProvider,
-    NetlifyFormComponent,
-    Honeypot
-} from 'react-netlify-forms'
+
 import { useForm, useFormState } from "react-hook-form"
 import { gsap } from 'gsap/all';
 
@@ -12,6 +7,7 @@ import { gsap } from 'gsap/all';
 
 import styled from 'styled-components'
 import media from '../../styles/media';
+import { mailer } from '../../utils/mailer';
 
 const FormDiv = styled.form`
     width: 100%;
@@ -459,13 +455,7 @@ const FormDiv = styled.form`
 
 const JobForm = () => {
     const { register, handleSubmit, watch, control, formState: { errors } } = useForm();
-    const netlify = useNetlifyForm({
-        name: 'career-form',
-        honeypotName: 'bot-field',
-        onSuccess: (response, context) => {
-            console.log('Successfully sent form data to Netlify Server')
-        }
-    })
+
 
     const { dirtyFields } = useFormState({
         control
@@ -473,21 +463,23 @@ const JobForm = () => {
 
     const [buttonText, setButtonText] = useState('Send')
 
-    const formSubmit = data => {
-
-        console.log(data);
-
+    const formSubmit = async ({ name, email, contact, role, message }) => {
         setButtonText('Sending...')
 
-        let formData = new FormData()
+        await mailer(
+            'NEW CANDIDATE MAIL',
+            `
+Hi there, you have a new email from ${name}.
 
-        formData.set("your-name", data.name)
-        formData.set("your-email", data.email)
-        formData.set("your-number", data.contact)
-        formData.set("your-role", data.role)
-        formData.set("your-message", data.message)
+Their message: ${message}
 
-        netlify.handleSubmit(null, data)
+Contact details
+${email}
+${contact}
+${role}
+`.trim(),
+        )
+
 
         setTimeout(() => {
             document.getElementById("job-form").reset();
@@ -603,94 +595,79 @@ const JobForm = () => {
     }
 
     return (
-        <FormDiv>
-            <NetlifyFormProvider {...netlify}>
-                <NetlifyFormComponent onSubmit={handleSubmit(formSubmit)}>
-                    {/* <FormDiv netlify netlify-honeypot="bot-field" className="JobformBottom" id="job-form" name="career" method="post" onSubmit={handleSubmit(formSubmit)}> */}
-                    {/* <div> */}
 
-                    <input type="hidden" name="form-name" value="career" />
+        <FormDiv className="JobformBottom" id="job-form" name="career" method="post" onSubmit={handleSubmit(formSubmit)}>
+            <input type="hidden" name="form-name" value="career" />
 
-                    <span class={dirtyFields.name ? 'input input--jiro input--filled' : 'input input--jiro'}>
-                        {/* <input class="input__field input__field--jiro" type="text" /> */}
-                        <input autoComplete={false} type="text" {...register("name", { required: true })} className={errors.name ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
-                        <label class="input__label input__label--jiro" for="input-10">
-                            <span class="input__label-content input__label-content--jiro">Name</span>
-                        </label>
-                    </span>
-                    {errors.name && <span className="formErr">This field is required.</span>}
+            <span class={dirtyFields.name ? 'input input--jiro input--filled' : 'input input--jiro'}>
+                {/* <input class="input__field input__field--jiro" type="text" /> */}
+                <input autoComplete={false} type="text" {...register("name", { required: true })} className={errors.name ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
+                <label class="input__label input__label--jiro" for="input-10">
+                    <span class="input__label-content input__label-content--jiro">Name</span>
+                </label>
+            </span>
+            {errors.name && <span className="formErr">This field is required.</span>}
 
-                    <span class={dirtyFields.email ? 'input input--jiro input--filled' : 'input input--jiro'}>
-                        {/* <input class="input__field input__field--jiro" type="text" /> */}
-                        <input autoComplete={false} type="email" placeholder="Email" {...register("email", { required: true, pattern: { value: /\S+@\S+\.\S+/, message: "Please enter a valid email address." } })} className={errors.email ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
-                        <label class="input__label input__label--jiro" for="input-10">
-                            <span class="input__label-content input__label-content--jiro">Email</span>
-                        </label>
-                    </span>
-                    {errors.email && <span className="formErr">{errors.email.message}</span>}
-                    {errors.email && <span className="formErr">This field is required.</span>}
+            <span class={dirtyFields.email ? 'input input--jiro input--filled' : 'input input--jiro'}>
+                {/* <input class="input__field input__field--jiro" type="text" /> */}
+                <input autoComplete={false} type="email" placeholder="Email" {...register("email", { required: true, pattern: { value: /\S+@\S+\.\S+/, message: "Please enter a valid email address." } })} className={errors.email ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
+                <label class="input__label input__label--jiro" for="input-10">
+                    <span class="input__label-content input__label-content--jiro">Email</span>
+                </label>
+            </span>
+            {errors.email && <span className="formErr">{errors.email.message}</span>}
+            {errors.email && <span className="formErr">This field is required.</span>}
 
-                    <span class={dirtyFields.contact ? 'input input--jiro input--filled' : 'input input--jiro'}>
-                        {/* <input class="input__field input__field--jiro" type="text" /> */}
-                        <input autoComplete={false} type="text" placeholder="Phone" {...register("contact", { required: true })} className={errors.contact ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
-                        <label class="input__label input__label--jiro" for="input-10">
-                            <span class="input__label-content input__label-content--jiro">Phone</span>
-                        </label>
-                    </span>
-                    {errors.contact && <span className="formErr">This field is required.</span>}
+            <span class={dirtyFields.contact ? 'input input--jiro input--filled' : 'input input--jiro'}>
+                {/* <input class="input__field input__field--jiro" type="text" /> */}
+                <input autoComplete={false} type="text" placeholder="Phone" {...register("contact", { required: true })} className={errors.contact ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
+                <label class="input__label input__label--jiro" for="input-10">
+                    <span class="input__label-content input__label-content--jiro">Phone</span>
+                </label>
+            </span>
+            {errors.contact && <span className="formErr">This field is required.</span>}
 
-                    <span class={dirtyFields.role ? 'input input--jiro input--filled' : 'input input--jiro'}>
-                        {/* <input class="input__field input__field--jiro" type="text" /> */}
-                        <input autoComplete={false} type="text" placeholder="Role" {...register("role", { required: false })} className={errors.role ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
-                        <label class="input__label input__label--jiro" for="input-10">
-                            <span class="input__label-content input__label-content--jiro">Role</span>
-                        </label>
-                    </span>
-                    {errors.role && <span className="formErr">This field is required.</span>}
+            <span class={dirtyFields.role ? 'input input--jiro input--filled' : 'input input--jiro'}>
+                {/* <input class="input__field input__field--jiro" type="text" /> */}
+                <input autoComplete={false} type="text" placeholder="Role" {...register("role", { required: false })} className={errors.role ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
+                <label class="input__label input__label--jiro" for="input-10">
+                    <span class="input__label-content input__label-content--jiro">Role</span>
+                </label>
+            </span>
+            {errors.role && <span className="formErr">This field is required.</span>}
 
-                    <span class={dirtyFields.cv ? 'input input--jiro input--filled' : 'input input--jiro'}>
-                        {/* <input class="input__field input__field--jiro" type="text" /> */}
-                        <input autoComplete={false} type="text" placeholder="Upload CV" {...register("cv", { required: true })} className={errors.cv ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
-                        <label class="input__label input__label--jiro" for="input-10">
-                            <span class="input__label-content input__label-content--jiro">Upload CV</span>
-                        </label>
-                    </span>
-                    {errors.cv && <span className="formErr">This field is required.</span>}
+            <span class={dirtyFields.cv ? 'input input--jiro input--filled' : 'input input--jiro'}>
+                {/* <input class="input__field input__field--jiro" type="text" /> */}
+                <input autoComplete={false} type="text" placeholder="Upload CV" {...register("cv", { required: true })} className={errors.cv ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
+                <label class="input__label input__label--jiro" for="input-10">
+                    <span class="input__label-content input__label-content--jiro">Upload CV</span>
+                </label>
+            </span>
+            {errors.cv && <span className="formErr">This field is required.</span>}
 
-                    <div className="sendDiv">
-                        <div className="explore">
-                            <MagneticButton
-                                className="button-1"
-                                scale={1.5}
-                                tollerance={.8}
-                                speed={0.5}
-                                borderRadius='30px'
-                            >
-                                <div className="circ">
-                                    <input type="submit" className="exploreText" value={buttonText} />
-                                    {/* Explore
+            <div className="sendDiv">
+                <div className="explore">
+                    <MagneticButton
+                        className="button-1"
+                        scale={1.5}
+                        tollerance={.8}
+                        speed={0.5}
+                        borderRadius='30px'
+                    >
+                        <div className="circ">
+                            <input type="submit" className="exploreText" value={buttonText} />
+                            {/* Explore
                     </p> */}
-                                </div>
-                            </MagneticButton>
                         </div>
-                        {buttonText === 'Sent' && (
-                            <p className="success">Thank you for your message, we will be in touch shortly.</p>
-                        )}
+                    </MagneticButton>
+                </div>
+                {buttonText === 'Sent' && (
+                    <p className="success">Thank you for your message, we will be in touch shortly.</p>
+                )}
 
-                        {netlify.success && (
-                            <p >
-                                Thanks for contacting us!
-                            </p>
-                        )}
-                        {netlify.error && (
-                            <p>
-                                Sorry, we could not reach servers. Because it only works on Netlify,
-                                our GitHub demo does not provide a response.
-                            </p>
-                        )}
-                    </div>
-                </NetlifyFormComponent>
-            </NetlifyFormProvider>
+
+            </div>
+
         </FormDiv>
     );
 };

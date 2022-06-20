@@ -473,9 +473,9 @@ Hi there, you have a new email from ${name}.
 Their message: ${message}
 
 Contact details
-- ${email}
-- ${contact}
-- ${agency}
+${email}
+${contact}
+${agency}
 `.trim(),
         )
 
@@ -594,7 +594,7 @@ Contact details
     }
 
     return (
-        <FormDiv className="PressformBottom" onSubmit={handleSubmit(formSubmit)}>
+        <FormDiv className="PressformBottom" onSubmit={handleSubmit(formSubmit)} id="press-form">
             {/* <div> */}
 
             <input type="hidden" name="form-name" value="press" />
