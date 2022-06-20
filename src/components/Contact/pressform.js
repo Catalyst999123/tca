@@ -465,19 +465,19 @@ const PressForm = () => {
 
         setButtonText('Sending...')
 
-        await mailer({
-            subject: 'NEW PRESS MAIL',
-            text: `
-            Hi there, you have a new email from ${name}.
-            
-            Their message: ${message}
-           
-            Contact details
-            - ${email}
-            - ${contact}
-            - ${agency}
-            `,
-        })
+        await mailer(
+            'NEW PRESS MAIL',
+            `
+Hi there, you have a new email from ${name}.
+
+Their message: ${message}
+
+Contact details
+- ${email}
+- ${contact}
+- ${agency}
+`.trim(),
+        )
 
 
         setTimeout(() => {

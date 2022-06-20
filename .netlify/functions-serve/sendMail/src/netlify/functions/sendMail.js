@@ -25,10 +25,6 @@ var __markAsModule = (target) => __defProp(target, "__esModule", { value: true }
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
 var __reExport = (target, module2, copyDefault, desc) => {
   if (module2 && typeof module2 === "object" || typeof module2 === "function") {
     for (let key of __getOwnPropNames(module2))
@@ -40,11 +36,6 @@ var __reExport = (target, module2, copyDefault, desc) => {
 var __toESM = (module2, isNodeMode) => {
   return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", !isNodeMode && module2 && module2.__esModule ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
 };
-var __toCommonJS = /* @__PURE__ */ ((cache) => {
-  return (module2, temp) => {
-    return cache && cache.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache && cache.set(module2, temp), temp);
-  };
-})(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
 
 // node_modules/axios/lib/helpers/bind.js
 var require_bind = __commonJS({
@@ -4700,14 +4691,9 @@ var require_mail3 = __commonJS({
 });
 
 // netlify/functions/sendMail.js
-var sendMail_exports = {};
-__export(sendMail_exports, {
-  mailer: () => mailer
-});
 var import_mail = __toESM(require_mail3());
 import_mail.default.setApiKey("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");
 var mailer = async (message) => {
-  console.log(message);
   try {
     await import_mail.default.send(__spreadProps(__spreadValues({}, message), {
       from: "bruno@ctrlr.studio",
@@ -4717,15 +4703,13 @@ var mailer = async (message) => {
     console.log({ err });
   }
 };
-exports.handler = async function(event, context) {
+exports.handler = async function({ body }) {
+  const data = JSON.parse(body);
+  console.log(data);
+  await mailer(data);
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: "Hello World" })
+    body: JSON.stringify({ message: "success" })
   };
 };
-module.exports = __toCommonJS(sendMail_exports);
-// Annotate the CommonJS export names for ESM import in node:
-0 && (module.exports = {
-  mailer
-});
 //# sourceMappingURL=sendMail.js.map
