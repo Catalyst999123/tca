@@ -4,5 +4,8 @@
   status = 200
   force = false
 
+[build]
+  command = "yarn build"
+
 [functions]
   node_bundler = "esbuild"
