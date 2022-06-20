@@ -3,3 +3,6 @@
   to = "/index.html"
   status = 200
   force = false
+
+[functions]
+  node_bundler = "esbuild"
