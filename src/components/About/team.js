@@ -144,11 +144,11 @@ function Team() {
                     <div className="right">
                         <p className="modalName">{selectTeamMember?.name}</p>
                         <p className="modalTitle">{selectTeamMember?.title}</p>
-                        <p className="question">Question 1</p>
+                        <p className="question">What you actually do?</p>
                         <p className="answer">{selectTeamMember?.answer1}</p>
-                        <p className="question">Question 2</p>
+                        <p className="question">What your parents think/thought you do?</p>
                         <p className="answer">{selectTeamMember?.answer2}</p>
-                        <p className="question">Question 3</p>
+                        <p className="question">Your spirit animal</p>
                         <p className="answer">{selectTeamMember?.answer3}</p>
                     </div>
                 </div>

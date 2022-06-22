@@ -105,6 +105,10 @@ const CampaignsGridCon = styled.div`
     color: #fff;
   }
 
+  h2{
+    font-size: 20px;
+  }
+
   .caserow {
     display: block;
   }
@@ -132,10 +136,17 @@ const CampaignsGridCon = styled.div`
     display: flex; 
     align-items: center;
     p{
-      margin-right: 20px;
+      margin-right: 18px;
     }
     img {
       width: 20px;
+    }
+  }
+
+  .learn-more-container:hover {
+    p {
+      margin-right: 28px;
+      transition: margin 0.3s linear;
     }
   }
 
@@ -151,6 +162,8 @@ const CampaignsGridCon = styled.div`
     align-items: center;
     justify-content: center;
 }
+
+
 
 ${media.tablet` 
 padding: 0 5vw;

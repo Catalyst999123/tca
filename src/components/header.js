@@ -305,7 +305,7 @@ const MenuCon = styled.div`
   }
 
   &.closed {
-    top: -100%;
+    top: -1000%;
     transition-delay: .5 s;
   }
 
@@ -427,7 +427,7 @@ const MenuCon = styled.div`
     }
 
     &.closed {
-      top: -100%;
+      top: -1000%;
       transition-delay: 2s;
 
       .line-wrap {

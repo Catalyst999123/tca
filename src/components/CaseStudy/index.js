@@ -301,7 +301,7 @@ const NextLink = styled.div`
   justify-content: center;
   a {
     color: var(--dark-blue);
-    font-size: 50px;
+    font-size: 40px;
     line-height: 50px;
     text-decoration: none;
     display: flex;

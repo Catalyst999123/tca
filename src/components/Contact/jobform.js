@@ -3,8 +3,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useForm, useFormState } from "react-hook-form"
 import { gsap } from 'gsap/all';
 
-// import { classie } from '../../classie'
-
 import styled from 'styled-components'
 import media from '../../styles/media';
 import { mailer } from '../../utils/mailer';
@@ -25,7 +23,7 @@ const FormDiv = styled.form`
         border-bottom: 2px solid var(--dark-blue);
         display: flex;
         margin: 0 0 30px;
-        font-size: 24px;
+        font-size: 20px;
         line-height: 30px;
         color: var(--dark-blue);
 
@@ -148,6 +146,7 @@ const FormDiv = styled.form`
     border-radius: 0;
     background: #f0f0f0;
     color: var(--dark-blue);
+    margin-top: 10px !important;
 }
 
 .input__field:focus {
@@ -301,6 +300,10 @@ const FormDiv = styled.form`
         margin: 0;
         padding: 0;
     }
+}
+
+.input__field {
+    margin-top: 0 !important;
 }
 
  .formErr {
@@ -463,21 +466,23 @@ const JobForm = () => {
 
     const [buttonText, setButtonText] = useState('Send')
 
-    const formSubmit = async ({ name, email, contact, role, message }) => {
+    const formSubmit = async ({ name, email, contact, role, message, linkedIn }) => {
         setButtonText('Sending...')
+
 
         await mailer(
             'NEW CANDIDATE MAIL',
             `
-Hi there, you have a new email from ${name}.
-
-Their message: ${message}
-
-Contact details
-${email}
-${contact}
-${role}
-`.trim(),
+ Hi there, you have a new email from ${name}.
+ 
+ Their message: ${message}
+ 
+ Contact details
+ ${email}
+ ${contact}
+ ${role}
+ ${linkedIn}
+ `.trim(),
         )
 
 
@@ -637,13 +642,19 @@ ${role}
             {errors.role && <span className="formErr">This field is required.</span>}
 
             <span class={dirtyFields.cv ? 'input input--jiro input--filled' : 'input input--jiro'}>
-                {/* <input class="input__field input__field--jiro" type="text" /> */}
-                <input autoComplete={false} type="text" placeholder="Upload CV" {...register("cv", { required: true })} className={errors.cv ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
+
+                <input autoComplete={false} type="text" placeholder="Upload CV" {...register("linkedIn", { required: true })} className={errors.cv ? 'input__field input__field--jiro labelErr' : 'input__field input__field--jiro'} />
                 <label class="input__label input__label--jiro" for="input-10">
-                    <span class="input__label-content input__label-content--jiro">Upload CV</span>
+                    <span class="input__label-content input__label-content--jiro">LinkedIn Link</span>
                 </label>
             </span>
             {errors.cv && <span className="formErr">This field is required.</span>}
+
+            {/*    <span class={dirtyFields.cv ? 'input input--jiro input--filled' : 'input input--jiro'}>
+                <input type="file" {...register("file", { required: false })} />
+            </span>
+
+            {errors.cv && <span className="formErr">This field is required.</span>} */}
 
             <div className="sendDiv">
                 <div className="explore">

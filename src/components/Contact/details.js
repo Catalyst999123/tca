@@ -33,7 +33,7 @@ const DetailsCon = styled.div`
     
     display: block;
     p {
-      margin-bottom: 15px;
+      margin-bottom: 5px;
      
     }
     a, .textDesc {
@@ -41,7 +41,7 @@ const DetailsCon = styled.div`
       text-decoration: none;
       font-size: 18px;
       line-height: 34px;
-      margin: 30px 0;
+      margin: 0;
       width: fit-content;
       &.address {
         margin: 60px 0;

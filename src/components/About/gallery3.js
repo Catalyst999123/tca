@@ -9,7 +9,7 @@ const Gallery3Con = styled.div`
   margin: 0 5vw 0;
   img {
     height: 100%;
-    width: 90%;
+    width: 100%;
     object-fit: cover;
   }
 

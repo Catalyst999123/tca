@@ -5,7 +5,7 @@ import media from '../../styles/media'
 
 const B2BCon = styled.div`
   height: auto;
-  margin: -15vh 16vw 0;
+  margin: 0 5vw ;
   display: block;
   /* padding: 0 14vw 0 12vw; */
   h2 {

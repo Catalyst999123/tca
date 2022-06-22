@@ -23,7 +23,7 @@ const FormDiv = styled.form`
         border-bottom: 2px solid var(--dark-blue);
         display: flex;
         margin: 0 0 30px;
-        font-size: 24px;
+        font-size: 20px;
         line-height: 30px;
         color: var(--dark-blue);
 
@@ -146,6 +146,7 @@ const FormDiv = styled.form`
     border-radius: 0;
     background: #f0f0f0;
     color: var(--dark-blue);
+    margin-top: 10px !important;
 }
 
 .input__field:focus {
@@ -299,6 +300,10 @@ const FormDiv = styled.form`
         margin: 0;
         padding: 0;
     }
+}
+
+.input__field {
+    margin-top: 0 !important;
 }
 
  .formErr {

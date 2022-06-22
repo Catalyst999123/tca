@@ -345,7 +345,7 @@ function expandIcon({ isActive }) {
 }
 
 function Forms() {
-  const [formType, setFormType] = useState('')
+  const [formType, setFormType] = useState('project')
 
   const options = [
     { value: 'project', label: 'Start a project' },

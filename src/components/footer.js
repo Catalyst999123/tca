@@ -18,7 +18,7 @@ const FooterCon = styled.div`
   background-color: var(--dark-blue);
   background-image: url(${FooterIcon});
   background-repeat: no-repeat;
-  background-size: 250px;
+  background-size: 350px;
 
   .footerTop {
     /* display: flex; */
