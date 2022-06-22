@@ -156,7 +156,7 @@ const Blogs = () => {
 
   const renderWorks = () => {
     return doc.sort((a, b) => b.data.importance - a.data.importance).map((work) => {
-      console.log(work);
+
       const day = work.data.date[0].text.substring(0, 2)
       var longMonth = months[parseInt(work.data.date[0].text.substring(3, 5))]
       const year = work.data.date[0].text.substring(6, 10)

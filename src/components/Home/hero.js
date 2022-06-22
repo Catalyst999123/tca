@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap";
 import styled from 'styled-components'
 import media from '../../styles/media'
+import { NavLink } from 'react-router-dom'
 
 import BrandMark from '../../images/greenbrandmark.svg'
 
@@ -21,6 +22,10 @@ const HomeHeroCon = styled.div`
     &.desk {
       display: none;
     }
+  }
+
+  a {
+    text-decoration: none !important;
   }
 
   .explore {
@@ -242,7 +247,7 @@ function HomeHero() {
     });
   }, [line2, line3]);
 
-  const MagneticButton = ({ 
+  const MagneticButton = ({
     children,
     className,
     speed = 1,
@@ -258,7 +263,7 @@ function HomeHero() {
     const rootBound = useRef()
     const itemBound = useRef()
     const diffBound = useRef({ x: 0, y: 0 })
-    
+
     const handleMouseEnter = () => {
       gsap.killTweensOf($item.current)
       gsap.set($hover.current, {
@@ -266,13 +271,13 @@ function HomeHero() {
         borderRadius,
         background: debug ? 'rgba(0, 125, 255, .4)' : 'transparent',
       })
-      
+
       rootBound.current = $root.current.getBoundingClientRect()
       itemBound.current = $item.current.getBoundingClientRect()
       diffBound.current.x = (rootBound.current.width * scale - rootBound.current.width) / 2
       diffBound.current.y = (rootBound.current.height * scale - rootBound.current.height) / 2
     }
-      
+
     const handleMouseLeave = () => {
       gsap.killTweensOf($item.current)
       gsap.to($item.current, {
@@ -285,14 +290,14 @@ function HomeHero() {
         scale: 1
       })
     }
-    
+
     const handleMouseMove = (e) => {
       const x = e.clientX || e.touches[0].clientX
       const y = e.clientY || e.touches[0].clientY
-      
+
       const maxX = (rootBound.current.width - itemBound.current.width) / 2 * tollerance
       const maxY = (rootBound.current.height - itemBound.current.height) / 2 * tollerance
-      
+
       const newX = gsap.utils.mapRange(
         0,
         rootBound.current.width * scale,
@@ -300,7 +305,7 @@ function HomeHero() {
         maxX,
         x - rootBound.current.x + diffBound.current.x
       )
-      
+
       const newY = gsap.utils.mapRange(
         0,
         rootBound.current.height * scale,
@@ -308,7 +313,7 @@ function HomeHero() {
         maxY,
         y - rootBound.current.y + diffBound.current.y
       )
-      
+
       gsap.killTweensOf($item.current)
       gsap.to($item.current, {
         x: newX,
@@ -317,9 +322,9 @@ function HomeHero() {
         duration: speed
       })
     }
-  
+
     return (
-      <button 
+      <button
         ref={$root}
         className={`magnetic-button ${className}`}
         onMouseEnter={handleMouseEnter}
@@ -358,16 +363,16 @@ function HomeHero() {
       </h2> */}
       <p className="desk">
         <div className='line-wrap'>
-        <div ref={el => (line2 = el)} className='line'>
-          Delivering results that
+          <div ref={el => (line2 = el)} className='line'>
+            Delivering results that
+          </div>
         </div>
-      </div>
-      <div className='line-wrap'>
-        <div ref={el => (line3 = el)} className='line'>
-           spark connections
+        <div className='line-wrap'>
+          <div ref={el => (line3 = el)} className='line'>
+            spark connections
+          </div>
         </div>
-      </div>
-      {/* <div className='line-wrap'>
+        {/* <div className='line-wrap'>
         <div ref={el => (line4 = el)} className='line'>
           
         </div>
@@ -375,14 +380,15 @@ function HomeHero() {
       </p>
 
       <p className="blurbText mob">
-      Delivering results that spark connections
+        Delivering results that spark connections
       </p>
 
       <p className="bodText">
-      The Catalyst Africa is the B2B marketing agency of choice, known for our impactful results and solutionist thinking. A multi-award-winning agency working with a diverse customer set, across both B2B and B2C. 
+        The Catalyst Africa is the B2B marketing agency of choice, known for our impactful results and solutionist thinking. A multi-award-winning agency working with a diverse customer set, across both B2B and B2C.
       </p>
 
       <div className="explore">
+
         <MagneticButton
           className="button-1"
           scale={1.5}
@@ -390,16 +396,22 @@ function HomeHero() {
           speed={0.5}
           borderRadius='30px'
         >
-          <div className="circ">
-          <p className="exploreText">
-            Explore
-          </p>
-        </div>
+          <NavLink
+            to={{
+              pathname: `/work`,
+            }}
+          >
+            <div className="circ">
+              <p className="exploreText">
+                Explore
+              </p>
+            </div>
+          </NavLink>
         </MagneticButton>
       </div>
 
       <img src={BrandMark} className="brandmark" alt="TCA" />
-    </HomeHeroCon>
+    </HomeHeroCon >
   );
 }
 export default HomeHero;
