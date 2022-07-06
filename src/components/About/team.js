@@ -111,13 +111,17 @@ const TeamCon = styled.div`
 function Team() {
     const [isOpen, setIsOpen] = useState(false)
     const [selectTeamMember, setSelectedTeamMember] = useState()
-    const [teamMembers] = useAllPrismicDocumentsByType('team_member')
+    const [teamMembers] = useAllPrismicDocumentsByType('team_member', {
+
+    })
 
     const openLink = (link) => {
         window.open(link, "_blank")
     }
 
-    console.log(teamMembers)
+
+
+
 
     return (
         <>
@@ -157,7 +161,9 @@ function Team() {
                 <p className="smallHeadUpper">Team</p>
                 <Reveal><Tween from={{ opacity: '0' }} duration={.5}><h2>Meet the Catalysts</h2></Tween></Reveal>
                 <div className="teammembers">
-                    {teamMembers?.map((member) => {
+                    {(teamMembers?.sort((a, b) =>
+                        a.slugs?.[0]?.localeCompare(b.slugs?.[0])
+                    ) || [])?.map((member) => {
                         const { id, data } = member
                         const { colour, bio, full_name, role, image, question_1, question_2, question_3, video, linkedin_link, calendly_link } = data
 
