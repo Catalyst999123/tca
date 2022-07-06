@@ -52,17 +52,17 @@ const LoaderCon = styled.div`
   }
 
   &.disable {
-    transition: 700ms ease-out;
-    opacity: 0;
+    transition: 0.5s ease-out; 
+    opacity: 0 !important;
     z-index: -3;
-    p {
-      opacity: 0;
+   p {
+      opacity: 0 !important;
     }
   }
 
   ${media.laptop`
     animation: ${PreloaderMove} 2s ease-in-out forwards;
-    animation-delay: 9s;
+    animation-delay: 8s;
 
     .loopOuter {
       height: 300px;
