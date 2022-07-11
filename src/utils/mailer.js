@@ -1,6 +1,6 @@
 
 // eslint-disable-next-line no-restricted-globals
-export const baseURL = location.hostname === 'localhost' ? 'http://localhost:8888/.netlify/functions' : 'https://catalystafrica.netlify.app//.netlify/functions'
+export const baseURL = location.hostname === 'localhost' ? 'http://localhost:8888/.netlify/functions' : `${location.protocol}/${location.host}/.netlify/functions`
 
 export const mailer = async (subject, text) => {
     try {
