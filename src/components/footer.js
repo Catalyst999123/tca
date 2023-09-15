@@ -511,7 +511,7 @@ function Footer({ color }) {
           </NavLink>
         </div>
       </div>
-      <p className="copyText"><NavLink to="/privacy">POPIA</NavLink> / <NavLink to="/privacy">Privacy Policy</NavLink> / © 2022 The Catalyst Africa. All Rights Reserved</p>
+      <p className="copyText"><NavLink to="/privacy">Privacy Policy</NavLink> / © 2022 The Catalyst Africa. All Rights Reserved</p>
     </FooterCon>
   );
 }
