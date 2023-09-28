@@ -94,15 +94,15 @@ function Info() {
     <>
     <InfoCon>
       <p>
-      The Protection of Personal Information Act, 2013 (“POPI”) came into complete commencement on 1 July 2021, in this regard we have a number of obligations and duties in terms of POPI that we must comply with. The protection of your personal information is a high priority for us and we have taken steps to ensure that your personal information is protected and remains private. 
+      The Protection of Personal Information Act, 2013 (“POPI”) came into complete commencement on 1 July 2021, in this regard we have several obligations and duties in terms of POPI that we must comply with. The protection of your personal information is a high priority for us, and we have taken steps to ensure that your personal information is protected and remains private.
       <br/><br/>
       In addition to this document serving as our privacy policy, this document will also serve as our data subject notification as contemplated in section 18 of POPI. In this regard, this document will inform you of what personal information we collect, why we collect it, how we use it and what safety measures are in place to protect it. <br/>
-      Where we refer to “process”, it means how we collect, use, store, make available, destroy, update, disclose, or otherwise deal with your personal information. As a general rule we will only process your personal information if this is required to deliver or offer a service, provide a product or carry out a transaction.<br/>
+      Where we refer to “process”, it means how we collect, use, store, make available, destroy, update, disclose, or otherwise deal with your personal information. As a rule, we will only process your personal information if this is required to deliver or offer a service, provide a product, or carry out a transaction.<br/>
       We may combine your personal information and use the combined personal information for any of the purposes stated in this Privacy Policy.<br/>
-      In this document any reference to “we” or “us” or “our” is reference to The Catalyst Africa (Pty) Ltd, also referred to as Catalyst.<br/>
-      If you use our services, goods and/or products, you agree that we may process your personal information as explained under this Privacy Policy. <br/>
+      In this document any reference to “we” or “us” or “our” is reference to The Catalyst Africa (Pty) Ltd.<br/>
+      If you use our services, goods and/or products, you agree that we may process your personal information as explained under this Privacy Policy.<br/>
       We may change this Privacy Policy from time to time if the law or our business practices requires it.<br/>
-      The version of the Privacy Policy displayed on our website at the time of your interaction with us will be applicable. 
+      The version of the Privacy Policy displayed on our website at the time of your interaction with us will be applicable.
       </p>
 
       <br/><br/>
@@ -113,6 +113,7 @@ function Info() {
       <br/><br/>
       <table>
         <tbody>
+      
           <tr>
             <td>Age</td>
             <td>Financial history</td>
@@ -170,7 +171,7 @@ function Info() {
           </tr>
           <tr>
             <td>E-mail address</td>
-            <td>Other particular assignment</td>
+            <td>Other assignment</td>
             <td>Well being</td>
           </tr>
           <tr>
@@ -189,13 +190,13 @@ function Info() {
 
       <span>Is the supply of the personal information voluntary or mandatory?</span>
       <p>
-        The supply of certain personal information is mandatory, meaning we have to collect this personal information from you by law. If you do not supply this information, we cannot comply with our legal obligations. In this regard, if you do not supply this personal information we cannot do business with you. We collect personal information as is required by the following legislation:
+      The supply of certain personal information is mandatory, meaning we must collect this personal information from you by law. If you do not supply this information, we cannot comply with our legal obligations. In this regard, if you do not supply this personal information, we cannot do business with you.
+      </p>
+      <p>
+      We collect personal information as is required by the following legislation: 
       </p>
       <p>
       Basic Conditions of Employment Act, No 75 of 1997<br/>
-      Continuing Education and Training Act (previously known as Further Education and Training Colleges Act) 16 of 2006<br/>
-      Compensation for Occupational Injuries and Diseases Act, No. 130 of 1993<br/>
-      Credit Agreement Act, No. 75 of 1980<br/>
       The Criminal Procedure Act, No. 51 of 1977<br/>
       Debt Collectors Act, No. 114 of 1998<br/>
       Employment Equity Act, No. 55 of 1998<br/>
@@ -204,22 +205,20 @@ function Info() {
       Income Tax Act 58 of 1962<br/>
       Labour Relations Act, No 66 of 1995<br/>
       National Credit Act, No. 34 of 2005<br/>
-      NQF Act No 67 of 2008<br/>
       Pension Funds Act, No. 24 of 1956<br/>
       Skills Development Act 97 of 1998<br/>
       Unemployment Insurance Act, No. 63 of 2001<br/>
-      Financial Advisory and Intermediary Service Act, No. 37 of 2002<br/>
       Occupational Health and Safety Act No. 85 of 1993<br/>
       Prevention of Organised Crime Act No. 121 of 1998
       </p>
       <br/><br/>
 
-      <p>In other instances the supply of personal information is voluntary, which means there is no law imposed on us to collect this personal information. Even though there is no law that imposes the collection of the personal information, we require the personal information to deliver the products and/or services to you. In this regard, if you do not supply the personal information, we cannot do business with you.</p>
+      <p>In other instances, the supply of personal information is voluntary, which means there is no law imposed on us to collect this personal information. Even though there is no law that imposes the collection of the personal information, we require the personal information to deliver the products and/or services to you. In this regard, if you do not supply the personal information, we cannot do business with you.</p>
       <br/><br/>
 
       <span>When will we process your personal information?</span>
       <p>
-        We will only process your personal information for lawful purposes relating to our business if the following applies:
+      We will only process your personal information for lawful purposes relating to our business if the following applies:
         {/* <br/><br/> */}
         <ul>
           <li>if you have consented thereto.</li>
@@ -406,8 +405,8 @@ function Info() {
           <li>we require it for statistical or research purposes.</li>
           <li>a code of conduct requires us to keep it; and / or</li>
           <li>we require it for our lawful business purposes.</li>
-          Take note: We may keep your personal information even if you no longer have a relationship with us, for the historical data that may be required by your employer or employee.
         </ul>
+        Take note: We may keep your personal information even if you no longer have a relationship with us, for the historical data that may be required by your employer or employee.
       </p>
       <br/>
       <br/>
@@ -434,12 +433,12 @@ function Info() {
         We will attend to requests for access to personal information within a reasonable time. You may be required to pay a reasonable fee to receive copies or descriptions of records, or information about third parties. We will inform you of the fee before attending to your request.<br/>
         Please note that the law may limit your right to access information.<br/>
         You have the right to request us to correct or delete the personal information we have about you if it is inaccurate, irrelevant, excessive, out of date, incomplete, misleading, obtained unlawfully or we are no longer authorised to keep it. You must inform us of your request in writing. It may take up to 15 business days for the change to reflect on our systems. We may request documents from you to verify the change in personal information.<br/>
-        A specific agreement that you have entered into with us may determine how you must change your personal information provided at the time when you entered into the specific agreement. Please adhere to these requirements. If the law requires us to keep the personal information, it will not be deleted upon your request. The deletion of certain personal information may lead to the termination of your business relationship with us.<br/>
+        A specific agreement that you have entered with us may determine how you must change your personal information provided at the time when you entered into the specific agreement. Please adhere to these requirements. If the law requires us to keep the personal information, it will not be deleted upon your request. The deletion of certain personal information may lead to the termination of your business relationship with us.<br/>
         You may object on reasonable grounds to the processing of your personal information.<br/>
         We will not be able to give effect to your objection if the processing of your personal information was and is permitted by law; you have provided consent to the processing and our processing done according to your consent or the processing is necessary to conclude or perform under a contract with you.<br/>
         Where you have provided your consent for the processing of your personal information, you may withdraw your consent. If you withdraw your consent, we will explain the consequences to you. We may proceed to process your personal information even if you have withdrawn your consent if the law permits or requires it. It may take up to 15 business days for the change to reflect on our systems, during this time we may still process your personal information. You must inform us of any objection in writing. <br/>
         You have a right to file a complaint with us or any Regulator with jurisdiction about an alleged contravention of the protection of your personal information by us. We will address your complaint as far as possible.<br/>
-        The contact details for the Information Regulator is as follows:
+        The contact details for the Information Regulator are as follows:
       </p>
       <table className="two">
         <tbody>
@@ -462,11 +461,11 @@ function Info() {
 
       <span>How can you get in touch with us?</span>
       <p>
-        For any queries in relation to this letter or our processing of your persona information in general, you can contact our Information Officer and/or Deputy Information Officer at the following details:<br/>
+        For any queries in relation to this letter or our processing of your personal information in general, you can contact our Information Officer and/or Deputy Information Officer at the following details:<br/>
         Name: Matthew Nkala<br/>
-        Contact Number: <a href="tel:0722232460"></a><br/>
+        Contact Number: <a href="tel:0722232460">0722232460</a><br/>
         Email Address: matt@thecatalyst.africa<br/>
-        
+        Physical Address: 24 Crawford Drive, Norscot, Sandton, Gauteng 2196<br/>
       </p>
       <br/>
       <br/>

@@ -1,5 +1,5 @@
-import React from "react"
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 import media from "../../styles/media";
 
 const PrivacyHeroCon = styled.div`
@@ -47,14 +47,13 @@ const PrivacyHeroCon = styled.div`
       top: 25vh;
     }
   `}
-`
+`;
 
 function PrivacyHero(info) {
-
   return (
     <PrivacyHeroCon>
       <p className="title blurbText">Website Privacy &amp; Cookies Policy</p>
-      <p className="author subHeading">EFFECTIVE DATE: 31 March 2022</p>
+      <p className="author subHeading">EFFECTIVE DATE: 22 September 2023</p>
     </PrivacyHeroCon>
   );
 }
