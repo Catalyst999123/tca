@@ -1,19 +1,19 @@
-import React, { useState } from "react"
-import { NavLink } from "react-router-dom"
-import styled from 'styled-components'
-import media from '../styles/media'
-import { useLocation } from 'react-router-dom'
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import media from "../styles/media";
+import { useLocation } from "react-router-dom";
 
-import Logo from '../images/logosvg.svg'
-import FooterLogo from '../images/footerLogo.svg'
+import Logo from "../images/logosvg.svg";
+import FooterLogo from "../images/footerLogo.svg";
 
 import {
   MouseParallaxChild,
-  MouseParallaxContainer
+  MouseParallaxContainer,
 } from "react-parallax-mouse";
 
 const HeadNav = styled.nav`
-  padding:var(--gutter-head);
+  padding: var(--gutter-head);
   width: 84vw;
   z-index: 998;
   display: flex;
@@ -45,7 +45,7 @@ const HeadNav = styled.nav`
   .menuLogo {
     opacity: 1;
     z-index: 7;
-    transition: all .25s linear;
+    transition: all 0.25s linear;
     transition-delay: 1.5s;
 
     &.open {
@@ -58,7 +58,7 @@ const HeadNav = styled.nav`
     border: none;
     background-color: var(--color);
     padding: 5px 10px;
-    transition: all .3s linear;
+    transition: all 0.3s linear;
     &:active {
       outline: none;
     }
@@ -91,7 +91,8 @@ const HeadNav = styled.nav`
     align-items: center;
     cursor: pointer;
   }
-  .menu__wrapper > div:hover, .menu__wrapper > div:focus {
+  .menu__wrapper > div:hover,
+  .menu__wrapper > div:focus {
     outline: none;
   }
   .menu__wrapper > span {
@@ -119,7 +120,7 @@ const HeadNav = styled.nav`
       }
     }
   }
-  
+
   /* .menu__item--doner .line:nth-child(2) {
     width: 25px;
   }
@@ -127,11 +128,11 @@ const HeadNav = styled.nav`
     width: 19px;
   } */
 
-  .menuIcon  {
+  .menuIcon {
     width: 20px;
     height: 20px;
     padding: 20px 20px 17px;
-    
+
     &.open {
       .menu__item--doner .line {
         position: absolute;
@@ -244,7 +245,7 @@ const HeadNav = styled.nav`
       display: block;
     }
   `}
-`
+`;
 
 const MenuCon = styled.div`
   position: fixed;
@@ -253,7 +254,7 @@ const MenuCon = styled.div`
   background: var(--dark-blue);
   color: white;
   top: -100vh;
-  transition: all 0.5s linear;
+  transition: all 0.5s ease;
   z-index: 997;
   padding: 0 8vw;
   display: flex;
@@ -280,7 +281,8 @@ const MenuCon = styled.div`
 
     .contacts {
       margin-top: 25%;
-      p, a {
+      p,
+      a {
         color: white;
         font-size: 18px;
         line-height: 22px;
@@ -306,39 +308,39 @@ const MenuCon = styled.div`
 
   &.closed {
     top: -1000%;
-    transition-delay: .5 s;
+    transition-delay: 0.5 s;
   }
 
-.magnetic-button {
-  border: none;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-  touch-action: none;
-  
-  span {
-    display: inline-block;
-  }
-  
-  &--hover {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
+  .magnetic-button {
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    touch-action: none;
 
-.button-1 {
-  padding: 40px;
-  font-size: 40px;
-  margin-left: -40px;
-  color: var(--light-green);
-}
+    span {
+      display: inline-block;
+    }
+
+    &--hover {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .button-1 {
+    padding: 40px;
+    font-size: 40px;
+    margin-left: -40px;
+    color: var(--light-green);
+  }
 
   ${media.laptop`
     padding:0 8vw;
@@ -432,7 +434,7 @@ const MenuCon = styled.div`
 
       .line-wrap {
         .line {
-          transition: all .2s linear;
+          transition: all .2s ease;
           transition-delay: .2s;
           margin-top: 95px;
           &:hover {
@@ -491,7 +493,7 @@ const MenuCon = styled.div`
     &.open {
       .line-wrap {
         .line {
-          transition: all .3s linear;
+          transition: all .3s ease;
           transition-delay: .5s;
           margin-top: 0px;
 
@@ -511,7 +513,7 @@ const MenuCon = styled.div`
       }
       .line-wrap-small {
         .line {
-          transition: all .3s linear;
+          transition: all .3s ease;
           transition-delay: 1.75s;
           margin-top: 0px;
 
@@ -563,57 +565,88 @@ const MenuCon = styled.div`
       color: var(--light-green);
     }
   `}
-`
+`;
 
 const Header = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  const [caseNo, setCaseNo] = useState(0)
-  const [blogNo, setBlogNo] = useState(0)
+  const [caseNo, setCaseNo] = useState(0);
+  const [blogNo, setBlogNo] = useState(0);
 
   // useInViewEffect(() => {
-  if (caseNo !== localStorage.getItem('casestudyNo')) {
-    setCaseNo(localStorage.getItem('casestudyNo'))
+  if (caseNo !== localStorage.getItem("casestudyNo")) {
+    setCaseNo(localStorage.getItem("casestudyNo"));
   }
-  if (blogNo !== localStorage.getItem('blogNo')) {
-    setBlogNo(localStorage.getItem('blogNo'))
+  if (blogNo !== localStorage.getItem("blogNo")) {
+    setBlogNo(localStorage.getItem("blogNo"));
   }
   // }, [])
 
   let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
 
-  if (location.pathname.replace("/", "") === '') {
-    document.documentElement.style.setProperty('--color', `var(--light-green)`);
-  } else if (location.pathname.replace("/", "") === 'about') {
-    document.documentElement.style.setProperty('--color', `var(--light-red)`);
-  } else if (location.pathname.replace("/", "") === 'services') {
-    document.documentElement.style.setProperty('--color', `var(--dark-green)`);
-  } else if (location.pathname.includes('blog') && location.pathname.length < 6) {
-    document.documentElement.style.setProperty('--color', `var(--dark-blue)`);
-  } else if (location.pathname.includes('blog') && location.pathname.length > 6) {
-    document.documentElement.style.setProperty('--color', `var(--dark-blue)`);
-  } else if (location.pathname.includes('work') && location.pathname.length < 6) {
-    document.documentElement.style.setProperty('--color', `var(--dark-blue)`);
-  } else if (location.pathname.includes('work') && location.pathname.length > 6) {
-    document.documentElement.style.setProperty('--color', `var(--dark-blue)`)
-  } else if (location.pathname.includes('privacy') && location.pathname.length > 6) {
-    document.documentElement.style.setProperty('--color', `var(--dark-blue)`)
-  } else if (location.pathname.replace("/", "") === 'contact') {
-    document.documentElement.style.setProperty('--color', `var(--light-blue)`);
+  if (location.pathname.replace("/", "") === "") {
+    document.documentElement.style.setProperty("--color", `var(--light-green)`);
+  } else if (location.pathname.replace("/", "") === "about") {
+    document.documentElement.style.setProperty("--color", `var(--light-red)`);
+  } else if (location.pathname.replace("/", "") === "services") {
+    document.documentElement.style.setProperty("--color", `var(--dark-green)`);
+  } else if (
+    location.pathname.includes("blog") &&
+    location.pathname.length < 6
+  ) {
+    document.documentElement.style.setProperty("--color", `var(--dark-blue)`);
+  } else if (
+    location.pathname.includes("blog") &&
+    location.pathname.length > 6
+  ) {
+    document.documentElement.style.setProperty("--color", `var(--dark-blue)`);
+  } else if (
+    location.pathname.includes("work") &&
+    location.pathname.length < 6
+  ) {
+    document.documentElement.style.setProperty("--color", `var(--dark-blue)`);
+  } else if (
+    location.pathname.includes("work") &&
+    location.pathname.length > 6
+  ) {
+    document.documentElement.style.setProperty("--color", `var(--dark-blue)`);
+  } else if (
+    location.pathname.includes("privacy") &&
+    location.pathname.length > 6
+  ) {
+    document.documentElement.style.setProperty("--color", `var(--dark-blue)`);
+  } else if (location.pathname.replace("/", "") === "contact") {
+    document.documentElement.style.setProperty("--color", `var(--light-blue)`);
   } else {
-    document.documentElement.style.setProperty('--color', `var(--light-blue)`);
+    document.documentElement.style.setProperty("--color", `var(--light-blue)`);
   }
 
   return (
     <>
       <HeadNav>
-        <NavLink exact activeClassName="menu__link--active" to="/" className="menu__link">
-          <img className={open ? 'menuLogo desk open' : 'menuLogo desk'} src={Logo} alt="logo" />
-          <img className={open ? 'menuLogo mob open' : 'menuLogo mob'} src={FooterLogo} alt="logo" />
+        <NavLink
+          exact
+          activeClassName="menu__link--active"
+          to="/"
+          className="menu__link"
+        >
+          <img
+            className={open ? "menuLogo desk open" : "menuLogo desk"}
+            src={Logo}
+            alt="logo"
+          />
+          <img
+            className={open ? "menuLogo mob open" : "menuLogo mob"}
+            src={FooterLogo}
+            alt="logo"
+          />
         </NavLink>
-        <button className={open ? 'menuIcon open' : 'menuIcon'} onClick={() => setOpen(!open)}>
+        <button
+          className={open ? "menuIcon open" : "menuIcon"}
+          onClick={() => setOpen(!open)}
+        >
           <div className="menu__wrapper">
             <div className="menu__item--doner" tabIndex="2">
               <div className="line"></div>
@@ -624,17 +657,22 @@ const Header = () => {
         </button>
       </HeadNav>
 
-      <MenuCon className={open ? 'open' : 'closed'}>
+      <MenuCon className={open ? "open" : "closed"}>
         {/* <Reveal repeat> */}
         {/* <Tween from={{opacity: 0}} duration={.2}> */}
         <div className="items">
           <div className="pages">
             <MouseParallaxContainer>
               <MouseParallaxChild factorX={-0.002} factorY={0.002}>
-                <div className='line-wrap'>
+                <div className="line-wrap">
                   {/* <Tween from={{ marginTop: '95px' }} duration={.5}> */}
-                  <div className='line'>
-                    <NavLink exact activeClassName="menu__link--active" to="/" onClick={() => setOpen(!open)}>
+                  <div className="line">
+                    <NavLink
+                      exact
+                      activeClassName="menu__link--active"
+                      to="/"
+                      onClick={() => setOpen(!open)}
+                    >
                       Home
                     </NavLink>
                   </div>
@@ -642,10 +680,15 @@ const Header = () => {
                 </div>
               </MouseParallaxChild>
               <MouseParallaxChild factorX={0.001} factorY={-0.003}>
-                <div className='line-wrap'>
+                <div className="line-wrap">
                   {/* <Tween from={{ marginTop: '95px' }} duration={.5} delay={.25}> */}
-                  <div className='line second'>
-                    <NavLink exact activeClassName="menu__link--active" to="/about" onClick={() => setOpen(!open)}>
+                  <div className="line second">
+                    <NavLink
+                      exact
+                      activeClassName="menu__link--active"
+                      to="/about"
+                      onClick={() => setOpen(!open)}
+                    >
                       Agency
                     </NavLink>
                   </div>
@@ -653,10 +696,15 @@ const Header = () => {
                 </div>
               </MouseParallaxChild>
               <MouseParallaxChild factorX={-0.003} factorY={0.003}>
-                <div className='line-wrap'>
+                <div className="line-wrap">
                   {/* <Tween from={{ marginTop: '95px' }} duration={.5} delay={.5}> */}
-                  <div className='line third'>
-                    <NavLink exact activeClassName="menu__link--active" to="/work" onClick={() => setOpen(!open)}>
+                  <div className="line third">
+                    <NavLink
+                      exact
+                      activeClassName="menu__link--active"
+                      to="/work"
+                      onClick={() => setOpen(!open)}
+                    >
                       Work<sup>{caseNo}</sup>
                     </NavLink>
                   </div>
@@ -664,10 +712,15 @@ const Header = () => {
                 </div>
               </MouseParallaxChild>
               <MouseParallaxChild factorX={0.003} factorY={-0.002}>
-                <div className='line-wrap'>
+                <div className="line-wrap">
                   {/* <Tween from={{ marginTop: '95px' }} duration={.5} delay={.75}> */}
-                  <div className='line fourth'>
-                    <NavLink exact activeClassName="menu__link--active" to="/blog" onClick={() => setOpen(!open)}>
+                  <div className="line fourth">
+                    <NavLink
+                      exact
+                      activeClassName="menu__link--active"
+                      to="/blog"
+                      onClick={() => setOpen(!open)}
+                    >
                       Blog<sup>{blogNo}</sup>
                     </NavLink>
                   </div>
@@ -675,10 +728,15 @@ const Header = () => {
                 </div>
               </MouseParallaxChild>
               <MouseParallaxChild factorX={-0.002} factorY={0.004}>
-                <div className='line-wrap'>
+                <div className="line-wrap">
                   {/* <Tween from={{ marginTop: '95px' }} duration={.5} delay={1}> */}
-                  <div className='line fifth'>
-                    <NavLink exact activeClassName="menu__link--active" to="/contact" onClick={() => setOpen(!open)}>
+                  <div className="line fifth">
+                    <NavLink
+                      exact
+                      activeClassName="menu__link--active"
+                      to="/contact"
+                      onClick={() => setOpen(!open)}
+                    >
                       Contact
                     </NavLink>
                   </div>
@@ -695,5 +753,5 @@ const Header = () => {
       </MenuCon>
     </>
   );
-}
+};
 export default Header;
