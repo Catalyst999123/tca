@@ -47,7 +47,7 @@ function B2B() {
         </p></Tween></Reveal>
       <Reveal><Tween from={{ opacity: '0' }} duration={.5} delay={.5}>
         <p className="bodyText">
-          Operating for more than 12 years as a full service agency, our clients – corporate, small to medium businesses – trust us with marketing initiatives that accelerate demand for their products and solutions. We understand our customers and their customers. Acting as an extension of their team, available for full support.
+          Operating for more than 18 years as a full service agency, our clients – corporate, small to medium businesses – trust us with marketing initiatives that accelerate demand for their products and solutions. We understand our customers and their customers. Acting as an extension of their team, available for full support.
         </p></Tween></Reveal>
     </B2BCon>
   );
