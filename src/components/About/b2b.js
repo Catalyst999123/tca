@@ -28,6 +28,7 @@ const B2BCon = styled.div`
       color: var(--dark-red);
       margin: 50px 80px 0 0;
     }
+    
 
     p {
       font-size: 25px;
