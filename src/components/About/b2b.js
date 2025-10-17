@@ -13,6 +13,7 @@ const B2BCon = styled.div`
     color: var(--dark-red);
     margin: 40px 0;
   }
+  
   p {
     font-size: 20px;
     line-height: 24px;
